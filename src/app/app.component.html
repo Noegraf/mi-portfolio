@@ -1,0 +1,44 @@
+<!-- 🚀 Mueve el modal aquí, FUERA de <main> -->
+  <app-modal 
+  *ngIf="isModalOpen" 
+  [project]="selectedProject" 
+  [toolPaths]="toolPaths"
+  (close)="closeModal()">
+</app-modal>
+
+
+
+<app-loading *ngIf="isLoading"></app-loading>
+
+<main [class.loading-hidden]="!isLoading">
+  <header>
+    <app-header></app-header>
+  </header>
+
+  
+
+  <section id="home" class="full-page hidden">
+    <app-home></app-home>
+  </section>
+
+  <section id="about" class="full-page hidden">
+    <app-about></app-about>
+  </section>
+
+  <section id="timeline" class="full-page hidden">
+    <app-timeline></app-timeline>
+  </section>
+
+  <section id="projects" class="full-page hidden">
+    <app-projects (openModal)="openModal($event)"></app-projects>
+  </section>
+
+  <section id="contact" class="full-page hidden">
+    <app-contact></app-contact>
+  </section>
+
+  <footer id="footer">
+    <app-footer></app-footer>
+  </footer>
+</main>
+

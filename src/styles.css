@@ -1,0 +1,118 @@
+/* Fuentes */
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Montserrat:wght@400;700&display=swap');
+
+/* Variables globales */
+:root {
+  --color-primary: #6d538b;
+  --color-secondary: #655a6f;
+  --color-tertiary: #884b6b;
+  --color-background: #FFFCFD;
+  --color-highlight: #B36FFF;
+
+  --neutral-100: #ffffff;
+  --neutral-90: #e6e2e1;
+  --neutral-70: #aeaaaa;
+  --neutral-50: #797676;
+  --neutral-30: #484646;
+  --neutral-10: #1c1b1b;
+  --neutral-0: #000000;
+  
+  --font-family-primary: 'Montserrat', sans-serif;
+  --font-family-secondary: 'Lora', serif;
+  --font-hand: 'Courier New', monospace;
+
+  /* Responsividad */
+  --mobile: 480px;
+  --tablet: 768px;
+  --desktop: 1024px;
+
+
+  --cursor-default: url(/assets/point.svg), auto;
+  --cursor-pointer: url(/assets/pointhand.svg), pointer; 
+  --cursor-highlight: url(/assets/pointmagic.svg), pointer;
+  --cursor-search: url(/assets/search.svg), pointer;
+  --cursor-mark: url(/assets/mark.svg), pointer;
+
+}
+
+
+.line-hand {
+  border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+  border-style: solid;
+  border-width: 2px;
+  box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
+  box-sizing: border-box;
+}
+
+
+
+
+.button-55 {
+  background-color: var(---primary-color);
+  background-image: none;
+  background-position: 0 90%;
+  background-repeat: repeat no-repeat;
+  background-size: 4px 3px;
+  border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+  border-style: solid;
+  border-width: 2px;
+  box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
+  box-sizing: border-box;
+  color: var(---primary-color);
+  cursor: var(--cursor-pointer);
+  display: flex;
+  font-family: var(--font-family-primary);
+  font-size: 1rem;
+  line-height: 23px;
+  outline: none;
+  padding: .75rem;
+  text-decoration: none;
+  transition: all 235ms ease-in-out;
+  border-bottom-left-radius: 15px 255px;
+  border-bottom-right-radius: 225px 15px;
+  border-top-left-radius: 255px 15px;
+  border-top-right-radius: 15px 225px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  flex-direction: row;
+  align-items: center;
+}
+
+.button-55:hover {
+  box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
+  transform: translate3d(0, 2px, 0);
+}
+
+.button-55:focus {
+  box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
+}
+
+
+/* <html data-theme="dark"> */
+[data-theme="dark"] {
+  --color-primary: #B36FFF;
+  --color-secondary: #a492c3;
+  --color-tertiary: #f082ac;
+  --color-background: #1c1b1b;
+  --color-highlight: #d99fff;
+
+  --neutral-100: #000000;
+  --neutral-90: #1c1b1b;
+  --neutral-70: #484646;
+  --neutral-50: #797676;
+  --neutral-30: #aeaaaa;
+  --neutral-10: #e6e2e1;
+  --neutral-0: #ffffff;
+
+  --cursor-default: url(/assets/point.svg), auto;
+  --cursor-pointer: url(/assets/pointhand.svg), pointer; 
+  --cursor-highlight: url(/assets/pointmagic.svg), pointer;
+  --cursor-search: url(/assets/search.svg), pointer;
+}
+
+
+.no-scroll {
+  overflow: hidden !important;
+  height: 100vh;
+}

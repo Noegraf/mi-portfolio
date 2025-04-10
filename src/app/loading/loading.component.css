@@ -1,0 +1,46 @@
+/* loading.component.css */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    overflow: hidden;
+  }
+  
+  .welcome-message {
+    font-family: 'Courier New', Courier, monospace; /* Fuente tipo máquina de escribir */
+    font-size: 3rem;
+    color: var(--primary-color);
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid var(--primary-color); /* Simula el cursor */
+    width: 0;
+    animation: typing 2s steps(15, end) forwards, blink-caret 0.75s step-end infinite;
+  }
+  
+  /* Animación de escritura */
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 20ch; /* Se ajusta al número de caracteres de "Bienvenido" */
+    }
+  }
+  
+  /* Animación del cursor (deja de parpadear al finalizar la escritura) */
+  @keyframes blink-caret {
+    50% {
+      border-color: transparent;
+    }
+    100% {
+      border-color: transparent; /* Cursor desaparece al finalizar */
+    }
+  }
+  

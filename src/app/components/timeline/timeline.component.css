@@ -1,0 +1,116 @@
+.full-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+
+.timeline-container {
+  display: flex;
+  align-items: center;
+ 
+  width: 800px;
+  overflow: hidden;
+  padding: 1rem;
+}
+
+.timeline-wrapper {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  flex-grow: 1;
+  padding:  0.5rem;
+  scrollbar-width: none; /* Firefox */
+
+}
+.timeline-wrapper::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+.timeline-item {
+padding-left: 8px;
+cursor: var(--cursor-pointer);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  opacity: 0.7;
+  width: 400px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+
+.timeline-content {
+  flex: 0 0 auto;
+  width: 280px;
+  min-height: 160px;
+  background-color: white;
+  border: 2px solid #ddd;
+  border-radius: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  cursor: var(--cursor-pointer);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  opacity: 0.7;
+}
+
+/* Estilo especial para el primer ítem */
+.timeline-item.first-item {
+padding-left: 6.5rem;
+}
+
+.timeline-item.last-item {
+ padding-right: 6.5rem;
+}
+
+.content h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.content p {
+  margin-top: 0.3rem;
+  font-size: 0.85rem;
+  color: var(--neutral-10);
+}
+
+
+
+.timeline-item.selected {
+  opacity: 1;
+  filter: none;
+  transform: scale(1.05);
+}
+
+.timeline-item.selected p{
+  color: var(--neutral-0);
+}
+
+
+.timeline-item.selected .date {
+  color: var(--color-highlight);
+}
+
+
+.year {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 680px;
+  padding-left: 18.3rem;
+}
+
+.year h1 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 0;
+  color: var(--color-highlight);
+}
+
+
+.button-55 {
+margin: 1rem;
+}

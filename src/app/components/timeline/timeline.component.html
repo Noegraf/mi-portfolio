@@ -1,0 +1,36 @@
+
+
+<div class="full-container">
+
+  <div class="year"><h1>{{ selectedYear }}</h1></div>
+
+<div class="timeline-container">
+  
+  <button (click)="prevItem()" class="button-55"><img src="/assets/arrowleft.svg" alt="Icono flecha a la izquierda">
+  </button>
+  
+  <div class="timeline-wrapper" #timelineWrapper>
+    <div
+      *ngFor="let item of timelineItemsData; let i = index"
+      [class.selected]="i === selectedIndex"
+      [class.first-item]="i === 0"
+      [class.last-item]="i === 19"
+      class="timeline-item"
+      (click)="selectItem(i)">
+      <div class="timeline-item">
+      
+
+      <div class="content">
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.description }}</p>
+        <p>{{ item.date }}</p>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <button (click)="nextItem()" class="button-55"><img src="/assets/arrowright.svg" alt="Icono flecha a la derecha">
+  </button>
+</div>
+
+</div>

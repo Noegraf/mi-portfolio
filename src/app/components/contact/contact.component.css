@@ -1,0 +1,245 @@
+/* -------- FUENTES --------- */
+/* Puedes incluir fuentes externas aquí si lo necesitas */
+
+/* -------- GLOBAL --------- */
+body {
+    margin: 0;
+    padding: 2rem;
+    background: linear-gradient(to bottom, #f2f1e6, #e0dccf);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: sans-serif;
+    background-color:var(--color-background);
+  }
+ 
+
+  /* -------- POSTAL --------- */
+  .postal {
+    width: 100%;
+    max-width: 600px;
+    background: #fffdf4;
+    border: 12px solid transparent;
+    border-image: repeating-linear-gradient(
+      45deg,
+      #FFD8E8 0 10px,
+      #fffdf4 10px 20px,
+      #EFDBFF 20px 30px,
+      #fffdf4 30px 40px
+    ) 12;
+    border-radius: 15px;
+    padding: 2rem;
+    margin-top: 5rem;
+    position: relative;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    animation: fadeInUp 1.2s ease-out;
+  }
+  
+  .postal.salida-carta {
+    animation: salidaAnimada 1.2s forwards ease-in-out;
+  }
+  
+  /* -------- ESTAMPILLA --------- */
+  .estampilla {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 80px;
+    height: 80px;
+  }
+  
+  .estampilla img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+  }
+  
+  .estampilla img:hover {
+    transform: rotate(-5deg) scale(1.1);
+  }
+  
+  /* -------- FORMULARIO --------- */
+  .contenido-postal {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .contenido-postal h2 {
+    font-size: 1.8rem;
+    color: #5e4b32;
+  }
+  
+  form input,
+  form textarea {
+    width: 100%;
+    padding: 0.7rem;
+    border: 1px solid #d8c7aa;
+    border-radius: 6px;
+    background: #fffaf1;
+    font-size: 1rem;
+    resize: none;
+    color: #5e4b32;
+  }
+  
+  form button {
+    background-color: #caa472;
+    color: white;
+    border: none;
+    padding: 0.8rem;
+    font-size: 1rem;
+    border-radius: 6px;
+    cursor: var(--cursor-pointer);
+    transition: background 0.3s ease, transform 0.2s ease;
+  }
+  
+  form button:hover {
+    background-color: #b6884e;
+    transform: scale(1.03);
+  }
+  
+  /* -------- SELECTOR DE ESTAMPILLAS --------- */
+  .estampillas-selector {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .estampillas-selector div {
+    border: 2px solid transparent;
+    padding: 5px;
+    cursor: var(--cursor-pointer);
+    transition: transform 0.2s ease;
+    border-radius: 6px;
+  }
+  
+  .estampillas-selector div:hover {
+    transform: scale(1.05);
+  }
+  
+  .estampillas-selector div.seleccionado {
+    border-color: #caa472;
+    background-color: #fffaf1;
+  }
+  
+  .estampillas-selector img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+  }
+  
+  /* -------- ANIMACIONES --------- */
+  @keyframes slideInLeft {
+    from {
+      transform: translateX(-150%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      transform: translateY(50px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideBounceIn {
+    0% {
+      transform: translateY(100px);
+      opacity: 0;
+    }
+    60% {
+      transform: translateY(-10px);
+      opacity: 1;
+    }
+    80% {
+      transform: translateY(5px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes enviarCarta {
+    0% {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+    30% {
+      transform: translateY(-30px) scale(1.02);
+    }
+    70% {
+      transform: translateY(-80px) scale(0.95);
+      opacity: 0.8;
+    }
+    100% {
+      transform: translateY(-150px) scale(0.8);
+      opacity: 0;
+    }
+  }
+  
+  @keyframes salidaAnimada {
+    0% {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+    80% {
+      transform: translateY(-200px) scale(0.9);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-250px) scale(0.8);
+      opacity: 0;
+    }
+  }
+  
+  .carta-entrada {
+    animation: slideBounceIn 1s ease-out;
+  }
+  
+  .carta-salida {
+    animation: enviarCarta 1.2s ease-in forwards;
+  }
+  
+  /* -------- RESPONSIVE --------- */
+  @media (max-width: 768px) {
+    .postal {
+      padding: 1.2rem;
+      margin-top: 6rem;
+    }
+  
+    .estampilla {
+      width: 60px;
+      height: 60px;
+      top: 5px;
+      right: 5px;
+    }
+  
+    .buzon-container {
+      top: 10px;
+      left: 10px;
+      transform: none;
+    }
+  
+    .estampillas-selector img {
+      width: 50px;
+      height: 50px;
+    }
+  
+    form button {
+      font-size: 0.95rem;
+      padding: 0.7rem;
+    }
+  }
+  

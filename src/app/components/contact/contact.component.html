@@ -1,0 +1,33 @@
+
+  
+  <div class="postal" [ngClass]="{
+    'carta-entrada': !animarSalida,
+    'carta-salida': animarSalida
+  }">
+
+  
+    <div class="estampilla">
+      <img [src]="selloSeleccionadoImg" alt="Estampilla" />
+    </div>
+  
+    <div class="contenido-postal">
+      <h2>Envíame un mensaje</h2>
+      <form (ngSubmit)="enviarMensaje()">
+        <input type="text" placeholder="Tu nombre" [(ngModel)]="nombre" name="nombre" required />
+        <input type="email" placeholder="Tu correo" [(ngModel)]="correo" name="correo" required />
+        <textarea placeholder="Escribe tu mensaje..." [(ngModel)]="mensaje" name="mensaje" required></textarea>
+        <button type="submit">Enviar</button>
+      </form>
+    </div>
+  </div>
+
+
+  
+  <div class="estampillas-selector">
+    <div *ngFor="let sello of sellos"
+         (click)="seleccionarSello(sello.id)"
+         [class.seleccionado]="sello.id === selloSeleccionado">
+      <img [src]="sello.img" [alt]="sello.nombre">
+    </div>
+  </div>
+  

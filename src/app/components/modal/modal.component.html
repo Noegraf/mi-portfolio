@@ -1,0 +1,103 @@
+<div class="modal-overlay" (click)="closeModal()">
+  <div class="modal-glass" (click)="$event.stopPropagation()" [ngStyle]="{'--accent-color': project.folderColor}">
+    <div class="project-sheet">
+
+      <!-- Botón de cerrar -->
+      <button class="close-button" (click)="closeModal()">×</button>
+
+      <!-- Encabezado -->
+      <div class="header">
+        <h2 class="main-title">{{ project.name }}</h2>
+        <div class="project-tags">
+          <span *ngFor="let tag of project.type" class="tag">{{ tag }}</span>
+
+        </div>
+
+                        
+      </div>
+
+      <!-- Sketch principal / flujo -->
+      <div class="main-content">
+        <div class="sketch">
+
+          <img [src]="project.details.flujoImage" alt="Flujo de usuario sketch" />
+          <figcaption>Observación del flujo de usuario</figcaption>
+                          <!-- Herramientas usadas -->
+                          <div class="tools" *ngIf="project.details?.herramientas?.length">
+                
+                            <div class="tools-container">
+                              <img *ngFor="let tool of project.details.herramientas" 
+                                   [src]="toolPaths[tool]" 
+                                   alt="{{ tool }}" 
+                                   class="tool-icon" />
+                            </div>
+                          </div>
+        </div>
+
+        <!-- Notas tipo manuscrito -->
+        <div class="detail-section">
+          <h3>Notas del estudio</h3>
+          <ul>
+            <li *ngFor="let note of project.notes">{{ note }}</li>
+          </ul>
+        </div>
+
+
+<!-- Carrusel compacto con imágenes desde extraImages -->
+<div class="carousel-container" *ngIf="project.details.extraImages?.length">
+  <div class="carousel-track">
+    <div class="carousel-card" *ngFor="let img of project.details.extraImages">
+      <img [src]="img" alt="Vista adicional del proyecto" />
+    </div>
+  </div>
+</div>
+
+      </div>
+
+
+
+
+
+<!-- Enlace al prototipo -->
+<div class="prototype-link" *ngIf="project.prototypeLink">
+  <a [href]="project.prototypeLink" target="_blank" rel="noopener noreferrer">
+    <img [src]="project.details.prototypeThumbnail" alt="Prototipo interactivo" *ngIf="project.details.prototypeThumbnail; else defaultThumb"/>
+    <ng-template #defaultThumb>
+      <img src="assets/desktop-frame.png" alt="Prototipo" />
+    </ng-template>
+    <span>Ver prototipo interactivo</span>
+  </a>
+</div>
+
+
+
+      <!-- Detalles del proyecto -->
+      <div class="details">
+        <div class="detail-section">
+          <h3>Responsabilidades</h3>
+          <ul>
+            <li *ngFor="let r of project.details.responsabilidades">{{ r }}</li>
+          </ul>
+        </div>
+
+        <div class="detail-section">
+          <h3>Entregables</h3>
+          <ul>
+            <li *ngFor="let e of project.details.principales_entregables">{{ e }}</li>
+          </ul>
+        </div>
+
+        <div class="detail-section">
+          <h3>Impacto</h3>
+          <ul>
+            <li *ngFor="let i of project.details.impacto_resultados">{{ i }}</li>
+          </ul>
+        </div>
+      </div>
+
+
+
+
+    </div>
+  </div>
+</div>
