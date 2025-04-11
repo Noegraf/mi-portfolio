@@ -1,9 +1,22 @@
-<div class="modal-overlay" (click)="closeModal()">
-  <div class="modal-glass" (click)="$event.stopPropagation()" [ngStyle]="{'--accent-color': project.folderColor}">
-    <div class="project-sheet">
 
-      <!-- Botón de cerrar -->
-      <button class="close-button" (click)="closeModal()">×</button>
+
+<div class="modal-overlay" (click)="closeModal()">
+
+  
+  <div class="modal-glass" [ngStyle]="{'--accent-color': project.folderColor}">
+
+
+
+    <div class="modal-container" (click)="$event.stopPropagation()">
+
+
+
+
+      <div class="project-sheet">
+        <!-- Botón cerrar -->
+        <button class="close-button" (click)="closeModal()">×</button>
+
+
 
       <!-- Encabezado -->
       <div class="header">
@@ -18,8 +31,8 @@
 
       <!-- Sketch principal / flujo -->
       <div class="main-content">
-        <div class="sketch">
-
+        
+          <div class="sketch" *ngIf="project.details?.flujoImage">
           <img [src]="project.details.flujoImage" alt="Flujo de usuario sketch" />
           <figcaption>Observación del flujo de usuario</figcaption>
                           <!-- Herramientas usadas -->
@@ -35,7 +48,7 @@
         </div>
 
         <!-- Notas tipo manuscrito -->
-        <div class="detail-section">
+        <div class="detail-section-notas">
           <h3>Notas del estudio</h3>
           <ul>
             <li *ngFor="let note of project.notes">{{ note }}</li>
@@ -45,29 +58,37 @@
 
 <!-- Carrusel compacto con imágenes desde extraImages -->
 <div class="carousel-container" *ngIf="project.details.extraImages?.length">
-  <div class="carousel-track">
+  <button class="carousel-btn left" (click)="prevImage()">‹</button>
+
+  <div class="carousel-track" [style.transform]="'translateX(-' + currentImageIndex * 100 + '%)'">
     <div class="carousel-card" *ngFor="let img of project.details.extraImages">
-      <img [src]="img" alt="Vista adicional del proyecto" />
+      <img [src]="img" alt="Imagen del proyecto" />
     </div>
   </div>
+
+  <button class="carousel-btn right" (click)="nextImage()">›</button>
+
+  <div class="carousel-indicators">
+    <span 
+      *ngFor="let img of project.details.extraImages; let i = index" 
+      [class.active]="i === currentImageIndex"
+    ></span>
+  </div>
 </div>
+
+
+
+
+
+
+
+
 
       </div>
 
 
 
 
-
-<!-- Enlace al prototipo -->
-<div class="prototype-link" *ngIf="project.prototypeLink">
-  <a [href]="project.prototypeLink" target="_blank" rel="noopener noreferrer">
-    <img [src]="project.details.prototypeThumbnail" alt="Prototipo interactivo" *ngIf="project.details.prototypeThumbnail; else defaultThumb"/>
-    <ng-template #defaultThumb>
-      <img src="assets/desktop-frame.png" alt="Prototipo" />
-    </ng-template>
-    <span>Ver prototipo interactivo</span>
-  </a>
-</div>
 
 
 
@@ -93,6 +114,14 @@
             <li *ngFor="let i of project.details.impacto_resultados">{{ i }}</li>
           </ul>
         </div>
+
+        <!-- Enlace al prototipo -->
+<div class="prototype-link" *ngIf="project.details?.prototipo && project.details?.prototipoUrl">
+  <a [href]="project.details.prototipoUrl" target="_blank" rel="noopener noreferrer" class="prototype-icon-link">
+    <img src="assets/app-window-expand--Streamline-Freehand.svg" alt="Enlace a prototipo" class="icon">
+  </a>
+</div>
+
       </div>
 
 

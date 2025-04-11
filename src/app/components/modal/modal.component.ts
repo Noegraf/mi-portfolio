@@ -13,6 +13,8 @@ export class ModalComponent {
   @Input() project: any;
   @Input() toolPaths!: { [key: string]: string };
   @Output() close = new EventEmitter<void>();
+  
+
 
   constructor(private sanitizer: DomSanitizer) {}
 
@@ -50,6 +52,16 @@ export class ModalComponent {
     return images;
   }
 
+  currentImageIndex = 0;
+
+  prevImage() {
+    const total = this.project?.details?.extraImages?.length || 0;
+    this.currentImageIndex = (this.currentImageIndex - 1 + total) % total;
+  }
   
+  nextImage() {
+    const total = this.project?.details?.extraImages?.length || 0;
+    this.currentImageIndex = (this.currentImageIndex + 1) % total;
+  }
 
 }

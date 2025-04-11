@@ -2,42 +2,44 @@
   <app-modal 
   *ngIf="isModalOpen" 
   [project]="selectedProject" 
+  
   [toolPaths]="toolPaths"
   (close)="closeModal()">
-</app-modal>
 
+</app-modal>
 
 
 <app-loading *ngIf="isLoading"></app-loading>
 
-<main [class.loading-hidden]="!isLoading">
+
+<main [class.loading-hidden]="!isLoading" [class.main-visible]="!isLoading">
   <header>
     <app-header></app-header>
   </header>
 
   
 
-  <section id="home" class="full-page hidden">
+  <section id="home" class="full-page invisible-init" appScrollAnimation>
     <app-home></app-home>
   </section>
 
-  <section id="about" class="full-page hidden">
+  <section id="about" class="full-page invisible-init" appScrollAnimation>
     <app-about></app-about>
   </section>
 
-  <section id="timeline" class="full-page hidden">
+  <section id="timeline" class="full-page invisible-init" appScrollAnimation>
     <app-timeline></app-timeline>
   </section>
 
-  <section id="projects" class="full-page hidden">
+  <section id="projects" class="full-page invisible-init" appScrollAnimation>
     <app-projects (openModal)="openModal($event)"></app-projects>
   </section>
 
-  <section id="contact" class="full-page hidden">
+  <section id="contact" class="full-page invisible-init" appScrollAnimation>
     <app-contact></app-contact>
   </section>
 
-  <footer id="footer">
+  <footer id="footer" class="full-page invisible-init" appScrollAnimation>
     <app-footer></app-footer>
   </footer>
 </main>

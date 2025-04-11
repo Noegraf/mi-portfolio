@@ -15,6 +15,7 @@ import { ModalComponent } from './components/modal/modal.component';
 
 @Component({
   selector: 'app-root',
+  standalone: true,
   imports: [ ModalComponent, CommonModule, HeaderComponent, AboutComponent, FooterComponent, ProjectsComponent, TimelineComponent, ContactComponent, LoadingComponent, HomeComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
@@ -26,6 +27,7 @@ export class AppComponent implements AfterViewInit, OnInit {
 
   isModalOpen = false;
   selectedProject: any = null;
+  
   toolPaths: { [key: string]: string } = {
     "Figma": "assets/figma.svg",
     "Photoshop": "assets/Photoshop.svg",
@@ -52,6 +54,8 @@ export class AppComponent implements AfterViewInit, OnInit {
     setTimeout(() => {
       this.isLoading = false;
     }, 2500); // 3000 ms = 3 segundos
+
+    
   }
 
   ngAfterViewInit() {
@@ -100,6 +104,8 @@ export class AppComponent implements AfterViewInit, OnInit {
   
 
   title = 'mi-portafolio';
+
+  
 }
 
 

@@ -1,33 +1,81 @@
 
-  
-  <div class="postal" [ngClass]="{
-    'carta-entrada': !animarSalida,
-    'carta-salida': animarSalida
-  }">
 
-  
-    <div class="estampilla">
-      <img [src]="selloSeleccionadoImg" alt="Estampilla" />
-    </div>
-  
-    <div class="contenido-postal">
-      <h2>Envíame un mensaje</h2>
-      <form (ngSubmit)="enviarMensaje()">
-        <input type="text" placeholder="Tu nombre" [(ngModel)]="nombre" name="nombre" required />
-        <input type="email" placeholder="Tu correo" [(ngModel)]="correo" name="correo" required />
-        <textarea placeholder="Escribe tu mensaje..." [(ngModel)]="mensaje" name="mensaje" required></textarea>
-        <button type="submit">Enviar</button>
-      </form>
+
+
+
+
+
+
+<!-- Caja de éxito con animación -->
+<div  class="caja-exito" [class.abierta]="animarCaja">
+  <div class="caja-tapa"></div>
+  <div class="caja-cuerpo">
+    <div *ngIf="successMessage" class="mensaje-feedback">
+      {{ successMessage }}
     </div>
   </div>
+</div>
 
+<!-- Postal -->
+<div class="postal" 
+     [ngClass]="{
+       'carta-entrada': !animarSalida && puertaAbierta,
+       'carta-salida': animarSalida
+     }">
 
-  
-  <div class="estampillas-selector">
-    <div *ngFor="let sello of sellos"
-         (click)="seleccionarSello(sello.id)"
-         [class.seleccionado]="sello.id === selloSeleccionado">
-      <img [src]="sello.img" [alt]="sello.nombre">
-    </div>
+  <!-- Sello animado solo si hay error o éxito -->
+  <div class="sello-feedback" *ngIf="mostrarSelloSVG && selloFeedbackTipo === 'error'">
+
+    <img 
+      [src]="selloFeedbackSrc"
+      [class]="selloFeedbackTipo"
+      alt="Sello feedback"
+      class="sello-vintage" />
   </div>
-  
+
+  <!-- Estampilla seleccionada -->
+  <div class="estampilla">
+    <img [src]="selloSeleccionadoImg" alt="Estampilla" />
+  </div>
+
+  <!-- Contenido del formulario -->
+  <div class="contenido-postal">
+    <h2>Envíame un mensaje</h2>
+
+    <form class="contact-form" (ngSubmit)="enviarMensaje()">
+      <input 
+        type="text" 
+        placeholder="Tu nombre" 
+        [(ngModel)]="nombre" 
+        name="nombre" 
+        required />
+
+      <input 
+        type="email" 
+        placeholder="Tu correo" 
+        [(ngModel)]="correo" 
+        name="correo" 
+        required />
+
+      <textarea 
+        placeholder="Escribe tu mensaje..." 
+        [(ngModel)]="mensaje" 
+        name="mensaje" 
+        required></textarea>
+
+      <button class="button-55" type="submit">Enviar</button>
+
+      
+    </form>
+  </div>
+</div>
+
+<!-- Selector de estampillas -->
+<div class="estampillas-selector">
+  <div 
+    *ngFor="let sello of sellos"
+    (click)="seleccionarSello(sello.id)"
+    [class.seleccionado]="sello.id === selloSeleccionado">
+    <img [src]="sello.img" [alt]="sello.nombre">
+  </div>
+</div>

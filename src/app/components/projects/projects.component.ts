@@ -16,12 +16,18 @@ export class ProjectsComponent {
   constructor(private sanitizer: DomSanitizer) {}
   isModalOpen = false;
   selectedProject: any = null;
+ 
+
+
 
   @Output() openModal = new EventEmitter<any>(); 
 
   openProjectModal(project: any) {
     console.log("🟢 Enviando proyecto al modal:", project);
     this.openModal.emit(project); // ✅ Enviar evento al padre (app.component.ts)
+    this.selectedProject = project;
+    this.isModalOpen = true;
+    document.body.classList.add('no-scroll');
   }
   
   filter: string = 'Todos';
@@ -44,13 +50,18 @@ export class ProjectsComponent {
         prototipo: true,
         arquitectura: false,
         herramientas: ["Figma"],
-        flujoImage: "assets/pantallas/talent-cloud-desktop.svg",
-        arquitecturaImage: "assets/pantallas/talent-cloud-desktop.svg",
-        prototipoUrl: "https://www.figma.com/proto/talent-cloud",
+        flujoImage: "assets/pantallas/talent-cloud-flujo.png",
+        prototipoUrl: "https://www.figma.com/proto/eNlTRzRMol4CCyh9G3PC0J/TALENTO-CLOUD-PROPUESTA-UX-UI?page-id=388%3A30113&node-id=388-31446&viewport=-364%2C230%2C0.06&t=fjyltQHTGuIp2z8l-1&scaling=contain&content-scaling=fixed&starting-point-node-id=388%3A31446&show-proto-sidebar=1",
         extraImages: [
-          "assets/pantallas/talent-cloud-login-1.png",
-          "assets/pantallas/talent-cloud-home-2.png",
-          "assets/pantallas/talent-cloud-userflow-3.png"
+          "assets/pantallas/DASHBOARD - BENEFICIOS- VOLVOtalent-cloud-login-1.png",
+          "assets/pantallas/DASHBOARD - BENEFICIOS- VOLVOtalent-cloud-login.png",
+          "assets/pantallas/DASHBOARD - COMPACTO - VOLVOtalent-cloud-login.png",
+          "assets/pantallas/Frame 29talent-cloud-login.png",
+          "assets/pantallas/Frame 31talent-cloud-login.png",
+          "assets/pantallas/iPhone 13 & 14 - 9talent-cloud-login.png",
+          "assets/pantallas/iPhone 13 & 14 - 10talent-cloud-login.png",
+          "assets/pantallas/Slide 16_9 - 5talent-cloud.png",
+          
         ],
         responsabilidades: [
           "Análisis y mejora de flujos existentes.",
@@ -68,7 +79,7 @@ export class ProjectsComponent {
       }
     },
     {
-      name: "Reddit - Juego para Hackatón",
+      name: "Reddit - Juego para Hackaton",
       type: ["Videojuego", "Hackatón", "UX/UI"],
       folderColor: "var(--color-secondary)",
       image: "assets/pantallas/reddit-game-desktop.svg",
@@ -78,17 +89,21 @@ export class ProjectsComponent {
         "Trabajo colaborativo en hackatón."
       ],
       details: {
-        flujo: true,
-        prototipo: true,
+        flujo: false,
+        prototipo: false,
         arquitectura: false,
         herramientas: ["Figma", "Reddit"],
-        flujoImage: "assets/pantallas/reddit-flujo.jpg",
+        flujoImage: null,
         arquitecturaImage: null,
-        prototipoUrl: "https://www.figma.com/proto/reddit-hackathon",
+        prototipoUrl: null,
         extraImages: [
-          "assets/pantallas/talent-cloud-login-1.png",
-          "assets/pantallas/talent-cloud-home-2.png",
-          "assets/pantallas/talent-cloud-userflow-3.png"
+          "assets/pantallas/desktopreddit-1.png",
+          "assets/pantallas/desktopreddit-2.png",
+          "assets/pantallas/desktopreddit-3.png",
+          "assets/pantallas/desktopreddit.png",
+          "assets/pantallas/OPTION 1reddit.png",
+          "assets/pantallas/phonereddit-1.png",
+          "assets/pantallas/phonereddit.png"
         ],
         responsabilidades: [
           "Diseño de flujos de interacción y dinámica de juego.",
@@ -120,13 +135,16 @@ export class ProjectsComponent {
         prototipo: true,
         arquitectura: true,
         herramientas: ["Figma"],
-        flujoImage: "assets/flujo-iteclab.jpg",
+        flujoImage: "assets/pantallas/Group 2it-coolab-flujo.png",
         arquitecturaImage: "assets/arquitectura-iteclab.jpg",
-        prototipoUrl: "https://www.figma.com/proto/iteclab",
+        prototipoUrl: "https://www.figma.com/proto/CdkGmA9iOjL1qoF1a694yi/IT-COLAB?page-id=19%3A869&node-id=125-1100&viewport=652%2C1423%2C0.13&t=NvTyDWCL5JEjLSpN-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=125%3A1100",
         extraImages: [
-          "assets/pantallas/talent-cloud-login-1.png",
-          "assets/pantallas/talent-cloud-home-2.png",
-          "assets/pantallas/talent-cloud-userflow-3.png"
+          "assets/pantallas/behanceit-coolab.png",
+          "assets/pantallas/behanceit-coolab-1.png",
+          "assets/pantallas/behanceit-coolab-2.png",
+          "assets/pantallas/behanceit-coolab-3.png",
+          "assets/pantallas/behanceit-coolab-4.png",
+          
         ],
         responsabilidades: [
           "Diseño de experiencia para equipos colaborativos.",
@@ -145,8 +163,8 @@ export class ProjectsComponent {
       }
     },
     {
-      name: "Voto - Sistema de Votación Digital",
-      type: ["Aplicación Móvil", "UX/UI", "Web3", "Educación"],
+      name: "Voto - Sistema de Votación",
+      type: ["Aplicación Móvil", "UX/UI", "Web3"],
       folderColor: "var(--color-secondary)",
       image: "assets/pantallas/voto-app-mobile.svg",
       notes: [
@@ -156,16 +174,23 @@ export class ProjectsComponent {
       ],
       details: {
         flujo: true,
-        prototipo: true,
+        prototipo: false,
         arquitectura: true,
         herramientas: ["Figma"],
-        flujoImage: "assets/flujo-voto.jpg",
+        flujoImage: "assets/pantallas/flujo-voto.png",
         arquitecturaImage: "assets/arquitectura-voto.jpg",
-        prototipoUrl: "https://www.figma.com/proto/voto",
+        prototipoUrl: null,
         extraImages: [
-          "assets/pantallas/talent-cloud-login-1.png",
-          "assets/pantallas/talent-cloud-home-2.png",
-          "assets/pantallas/talent-cloud-userflow-3.png"
+          "assets/pantallas/1Voto.png",
+          "assets/pantallas/2Voto.png",
+          "assets/pantallas/3Voto.png",
+          "assets/pantallas/4Voto.png",
+          "assets/pantallas/5Voto.png",
+          "assets/pantallas/6Voto.png",
+          "assets/pantallas/7Voto.png",
+          "assets/pantallas/8Voto.png",
+          "assets/pantallas/9Voto.png",
+          "assets/pantallas/10Voto.png",
         ],
         responsabilidades: [
           "Diseño de interfaz clara y comprensible para todos los niveles.",
@@ -197,15 +222,22 @@ export class ProjectsComponent {
       details: {
         flujo: true,
         prototipo: true,
-        arquitectura: true,
         herramientas: ["Figma"],
-        flujoImage: "assets/flujo-tango.jpg",
-        arquitecturaImage: "assets/arquitectura-tango.jpg",
-        prototipoUrl: "https://www.figma.com/proto/tango-wallet",
+        flujoImage: "assets/pantallas/flujo-tango.png",
+        prototipoUrl: "https://www.figma.com/proto/15qxs0R6QijNqKyIICetjs/Tango-Wallet-Wireframes?page-id=7%3A340&node-id=36-9389&viewport=454%2C354%2C0.11&t=BwNHiDVpUv1lVgXH-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=36%3A9389&show-proto-sidebar=1",
         extraImages: [
-          "assets/pantallas/talent-cloud-login-1.png",
-          "assets/pantallas/talent-cloud-home-2.png",
-          "assets/pantallas/talent-cloud-userflow-3.png"
+          "assets/pantallas/tango-1.png",
+         
+          "assets/pantallas/tango01.png",
+          "assets/pantallas/tango02.png",
+          
+          "assets/pantallas/tango04.png",
+          "assets/pantallas/tango05.png",
+          "assets/pantallas/tango06.png",
+          "assets/pantallas/tango07.png",
+          "assets/pantallas/tango08.png",
+          "assets/pantallas/tango10.png",
+          "assets/pantallas/tango11.png",
         ],
         responsabilidades: [
           "Definición de flujos para transacciones Web3.",
@@ -227,7 +259,7 @@ export class ProjectsComponent {
     
     {
       name: "MicaIA - Plataforma Educativa",
-      type: ["Aplicación Web", "UX/UI", "Educación", "Accesibilidad"],
+      type: ["Aplicación Web", "UX/UI", "Educación", "Accesibilidad", "Branding"],
       folderColor: "var(--color-secondary)",
       image: "assets/pantallas/MICAIA-mobile.svg",
       notes: [
@@ -240,13 +272,44 @@ export class ProjectsComponent {
         prototipo: true,
         arquitectura: true,
         herramientas: ["Figma", "Illustrator"],
-        flujoImage: "assets/flujo-micaia-educativa.jpg",
+        flujoImage: "assets/pantallas/flujo-micaia.png",
         arquitecturaImage: "assets/arquitectura-micaia-educativa.jpg",
-        prototipoUrl: "https://www.figma.com/proto/micaia-educativa",
+        prototipoUrl: "https://www.figma.com/proto/cwvOllqeXqpFNHIhafo2au/MICAIA-UX-UI?page-id=1%3A4&node-id=6-2333&viewport=667%2C-175%2C0.24&t=x5Pqz3HoZVX918ah-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=15%3A3080&show-proto-sidebar=1",
         extraImages: [
-          "assets/pantallas/talent-cloud-login-1.png",
-          "assets/pantallas/talent-cloud-home-2.png",
-          "assets/pantallas/talent-cloud-userflow-3.png"
+          "assets/pantallas/micaiaapp01.png",
+          "assets/pantallas/micaiaapp02.png",
+          "assets/pantallas/micaiaapp03.png",
+          "assets/pantallas/micaiaapp04.png",
+          "assets/pantallas/micaiaapp05.png",
+          "assets/pantallas/micaiaapp06.png",
+          "assets/pantallas/micaiaapp07.png",
+          "assets/pantallas/micaiaapp08.png",
+          "assets/pantallas/micaiaapp09.png",
+          "assets/pantallas/micaiaapp10.png",
+          "assets/pantallas/micaiaapp11.png",
+          "assets/pantallas/micaiaapp12.png",
+          "assets/pantallas/micaiaapp13.png",
+          "assets/pantallas/micaiaapp14.png",
+          "assets/pantallas/micaiaapp15.png",
+          "assets/pantallas/micaiabranding01.png",
+          "assets/pantallas/micaiabranding02.png",
+          "assets/pantallas/micaiabranding03.png",
+          "assets/pantallas/micaiabranding04.png",
+          "assets/pantallas/micaiabranding05.png",
+          "assets/pantallas/micaiabranding06.png",
+          "assets/pantallas/micaiajuego101.png",
+          "assets/pantallas/micaiajuego102.png",
+          "assets/pantallas/micaiajuego103.png",
+          "assets/pantallas/micaiaweb01.png",
+          "assets/pantallas/micaiaweb02.png",
+          "assets/pantallas/micaiaweb03.png",
+          "assets/pantallas/ONEPAGE MICAIA 1.png",
+          "assets/pantallas/ONEPAGE MICAIA 2.png",
+          "assets/pantallas/micaia-presentation01.png",
+          "assets/pantallas/micaia-presentation02.png",
+          "assets/pantallas/micaia-presentation03.png",
+          "assets/pantallas/micaia-presentation04.png",
+          "assets/pantallas/micaia-presentation05.png"
         ],
         responsabilidades: [
           "Investigación profunda en accesibilidad infantil.",
@@ -277,16 +340,20 @@ export class ProjectsComponent {
       ],
       details: {
         flujo: true,
-        prototipo: true,
-        arquitectura: true,
-        herramientas: ["Figma", "Notion", "Illustrator"],
-        flujoImage: "assets/flujo-apolus-app.jpg",
-        arquitecturaImage: "assets/arquitectura-apolus-app.jpg",
-        prototipoUrl: "https://www.figma.com/proto/apolus-app",
+        prototipo: false,
+        arquitectura: false,
+        herramientas: ["Figma", "Illustrator", "Photoshop"],
+        flujoImage: "assets/pantallas/flujo-apolus-app.png",
+        arquitecturaImage: null,
+        prototipoUrl: null,
         extraImages: [
-          "assets/pantallas/talent-cloud-login-1.png",
-          "assets/pantallas/talent-cloud-home-2.png",
-          "assets/pantallas/talent-cloud-userflow-3.png"
+          "assets/pantallas/apolus-sketch.png",
+          "assets/pantallas/apolus01@3x.png",
+          "assets/pantallas/apolus02@3x.png",
+          "assets/pantallas/apolus04@3x.png",
+          "assets/pantallas/apolus05@3x.png",
+          "assets/pantallas/apolus06@3x.png",
+     
         ],
         responsabilidades: [
           "Rediseño de flujos heredados desde PXM.",
@@ -317,16 +384,22 @@ export class ProjectsComponent {
       ],
       details: {
         flujo: true,
-        prototipo: true,
-        arquitectura: true,
-        herramientas: ["Figma", "Notion", "Miro"],
-        flujoImage: "assets/flujo-apolus-admin.jpg",
-        arquitecturaImage: "assets/arquitectura-apolus-admin.jpg",
-        prototipoUrl: "https://www.figma.com/proto/apolus-admin",
+        prototipo: false,
+        arquitectura: false,
+        herramientas: ["Figma"],
+        flujoImage: "assets/pantallas/flujo-apolusadmin.png",
+        arquitecturaImage: null,
+        prototipoUrl: null,
         extraImages: [
-          "assets/pantallas/talent-cloud-login-1.png",
-          "assets/pantallas/talent-cloud-home-2.png",
-          "assets/pantallas/talent-cloud-userflow-3.png"
+          "assets/pantallas/apolus-admin01.png",
+          "assets/pantallas/apolus-admin02.png",
+          "assets/pantallas/apolus-admin03.png",
+          "assets/pantallas/apolus-admin04.png",
+          "assets/pantallas/apolus-admin05.png",
+          "assets/pantallas/apolus-admin06.png",
+          "assets/pantallas/apolus-admin07.png",
+          "assets/pantallas/apolus-admin08.png"
+
         ],
         responsabilidades: [
           "Diseño de arquitectura para módulos administrativos.",
@@ -358,16 +431,22 @@ export class ProjectsComponent {
       ],
       details: {
         flujo: true,
-        prototipo: true,
-        arquitectura: true,
+        prototipo: false,
+        arquitectura: false,
         herramientas: ["Figma"],
-        flujoImage: "assets/flujo-pxm-mobile.jpg",
-        arquitecturaImage: "assets/arquitectura-pxm-mobile.jpg",
-        prototipoUrl: "https://www.figma.com/proto/pxm-mobile",
+        flujoImage: "assets/pantallas/flujo-pxm-kyc-app.png",
+        arquitecturaImage: null,
+        prototipoUrl: null,
         extraImages: [
-          "assets/pantallas/talent-cloud-login-1.png",
-          "assets/pantallas/talent-cloud-home-2.png",
-          "assets/pantallas/talent-cloud-userflow-3.png"
+          "assets/pantallas/pxm-app01.jpg",
+          "assets/pantallas/pxm-app02.jpg",
+          "assets/pantallas/pxm-app03.jpg",
+          "assets/pantallas/pxm-app04.jpg",
+          "assets/pantallas/pxm-app05.jpg",
+          "assets/pantallas/pxm-app06.jpg",
+          "assets/pantallas/pxm-app07.jpg",
+      
+         
         ],
         responsabilidades: [
           "Diseño de interfaz para usuarios finales.",
@@ -399,16 +478,16 @@ export class ProjectsComponent {
       ],
       details: {
         flujo: true,
-        prototipo: true,
-        arquitectura: true,
+        prototipo: false,
+        arquitectura: false,
         herramientas: ["Figma"],
-        flujoImage: "assets/flujo-pxm-admin.jpg",
-        arquitecturaImage: "assets/arquitectura-pxm-admin.jpg",
-        prototipoUrl: "https://www.figma.com/proto/pxm-admin",
+        flujoImage: "assets/pantallas/pxm-admin-flujo.png",
+        arquitecturaImage: null,
+        prototipoUrl: null,
         extraImages: [
-          "assets/pantallas/talent-cloud-login-1.png",
-          "assets/pantallas/talent-cloud-home-2.png",
-          "assets/pantallas/talent-cloud-userflow-3.png"
+          "assets/pantallas/pxm-admin01.png",
+          "assets/pantallas/pxm-admin02.png",
+          "assets/pantallas/pxm-admin03.png"
         ],
         responsabilidades: [
           "Creación de paneles de administración eficientes.",
@@ -439,17 +518,21 @@ export class ProjectsComponent {
         "Optimización para SEO y conversión."
       ],
       details: {
-        flujo: false,
-        prototipo: true,
+        flujo: true,
+        prototipo: false,
         arquitectura: false,
         herramientas: ["Figma"],
-        flujoImage: null,
+        flujoImage: "assets/pantallas/flujo-pxm-landing.png",
         arquitecturaImage: null,
-        prototipoUrl: "https://www.figma.com/proto/pxm-landing",
+        prototipoUrl: null,
         extraImages: [
-          "assets/pantallas/talent-cloud-login-1.png",
-          "assets/pantallas/talent-cloud-home-2.png",
-          "assets/pantallas/talent-cloud-userflow-3.png"
+          "assets/pantallas/pxm-landing01.png",
+          "assets/pantallas/pxm-landing02.png",
+          "assets/pantallas/pxm-landing03.png",
+          "assets/pantallas/pxm-landing04.png",
+          "assets/pantallas/pxm-landing05.png",
+          "assets/pantallas/pxm-landing06.png",
+          "assets/pantallas/pxm-landing07.png"
         ],
         responsabilidades: [
           "Diseño visual alineado con la identidad de marca.",
@@ -470,7 +553,7 @@ export class ProjectsComponent {
     },
     {
       name: "Macrotécnica - Landing Page",
-      type: ["Landing Page", "UX/UI", "Branding"],
+      type: ["Landing Page", "UX/UI", "Branding", "Community Management", "Membrete y firma", "Renders"],
       folderColor: "var(--color-secondary)",
       image: "assets/pantallas/macrotecnica-desktop.svg",
       notes: [
@@ -481,16 +564,25 @@ export class ProjectsComponent {
       ],
       details: {
         flujo: false,
-        prototipo: true,
+        prototipo: false,
         arquitectura: false,
         herramientas: ["Figma", "Photoshop", "Illustrator"],
         flujoImage: null,
         arquitecturaImage: null,
-        prototipoUrl: "https://www.figma.com/proto/macrotecnica",
+        prototipoUrl: null,
         extraImages: [
-          "assets/pantallas/talent-cloud-login-1.png",
-          "assets/pantallas/talent-cloud-home-2.png",
-          "assets/pantallas/talent-cloud-userflow-3.png"
+          "assets/pantallas/macrotecnica01.png",
+          "assets/pantallas/macrotecnica02.png",
+          "assets/pantallas/macrotecnica03.png",
+          "assets/pantallas/macrotecnica04.png",
+          "assets/pantallas/macrotecnica05.png",
+          "assets/pantallas/macrotecnica06.png",
+          "assets/pantallas/macrotecnica07.png",
+          "assets/pantallas/macrotecnica08.png",
+          "assets/pantallas/macrotecnica09.png",
+          "assets/pantallas/macrotecnica10.png",
+         
+         
         ],
         responsabilidades: [
           "Creación de identidad visual desde cero.",
@@ -511,7 +603,7 @@ export class ProjectsComponent {
     },
     {
       name: "Biointropic - Formularios Interactivos",
-      type: ["Desktop", "UX/UI"],
+      type: ["Desktop", "UX/UI", "Rediseño", "Wireframes", "Formularios Interactivos"],
       folderColor: "var(--color-secondary)",
       image: "assets/pantallas/biointropic-desktop-admin-desktop.svg",
       notes: [
@@ -522,16 +614,22 @@ export class ProjectsComponent {
       ],
       details: {
         flujo: true,
-        prototipo: true,
-        arquitectura: true,
+        prototipo: false,
+        arquitectura: false,
         herramientas: ["Figma"],
-        flujoImage: "assets/flujo-biointropic.jpg",
-        arquitecturaImage: "assets/arquitectura-biointropic.jpg",
-        prototipoUrl: "https://www.figma.com/proto/biointropic",
+        flujoImage: "assets/pantallas/flujo-biointropic.png",
+        arquitecturaImage: null,
+        prototipoUrl: null,
         extraImages: [
-          "assets/pantallas/talent-cloud-login-1.png",
-          "assets/pantallas/talent-cloud-home-2.png",
-          "assets/pantallas/talent-cloud-userflow-3.png"
+          "assets/pantallas/biointropic01.png",
+          "assets/pantallas/biointropic02.png",
+          "assets/pantallas/biointropic03.png",
+          "assets/pantallas/biointropic04.png",
+          "assets/pantallas/biointropic05.png",
+          "assets/pantallas/biointropic06.png",
+          "assets/pantallas/biointropic07.png",
+      
+          
         ],
         responsabilidades: [
           "Diseño UX/UI de la plataforma de formularios.",
@@ -552,7 +650,7 @@ export class ProjectsComponent {
     },
     {
       name: "Plenitud - Plataforma de Gestión",
-      type: ["Desktop", "UX/UI"],
+      type: ["Desktop", "UX/UI", "Rediseño", "Wireframes"],
       folderColor: "var(--color-secondary)",
       image: "assets/pantallas/plenitud-tablet.svg",
       notes: [
@@ -562,17 +660,19 @@ export class ProjectsComponent {
         "Optimización de la experiencia para clientes."
       ],
       details: {
-        flujo: true,
-        prototipo: true,
-        arquitectura: true,
+        flujo: false,
+        prototipo: false,
+        arquitectura: false,
         herramientas: ["Figma"],
-        flujoImage: "assets/flujo-plenitud.jpg",
-        arquitecturaImage: "assets/arquitectura-plenitud.jpg",
-        prototipoUrl: "https://www.figma.com/proto/plenitud",
+        flujoImage: null,
+        arquitecturaImage: null,
+        prototipoUrl: null,
         extraImages: [
-          "assets/pantallas/talent-cloud-login-1.png",
-          "assets/pantallas/talent-cloud-home-2.png",
-          "assets/pantallas/talent-cloud-userflow-3.png"
+          "assets/pantallas/plenitud01.png",
+          "assets/pantallas/plenitud02.png",
+          "assets/pantallas/plenitud03.png",
+          "assets/pantallas/plenitud04.png",
+          "assets/pantallas/plenitud05.png",
         ],
         responsabilidades: [
           "Diseño de experiencia para clientes incluyendo contratos y gestión bancaria.",
@@ -723,10 +823,6 @@ export class ProjectsComponent {
     document.body.classList.remove('no-scroll'); // 🔥 Reactivar scroll al cerrar
   }
   
-
-
-
-
-
+  
   
 }
