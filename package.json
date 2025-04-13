@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "deploy": "ng build --configuration production && move dist\\mi-portfolio\\browser\\index.html dist\\mi-portfolio\\index.html && move dist\\mi-portfolio\\browser\\main-4Z3QGCVP.js dist\\mi-portfolio\\main-4Z3QGCVP.js && move dist\\mi-portfolio\\browser\\polyfills-FFHMD2TL.js dist\\mi-portfolio\\polyfills-FFHMD2TL.js && move dist\\mi-portfolio\\browser\\styles-23OKGHO3.css dist\\mi-portfolio\\styles-23OKGHO3.css && move dist\\mi-portfolio\\browser\\assets dist\\mi-portfolio\\assets && move dist\\mi-portfolio\\browser\\favicon.ico dist\\mi-portfolio\\favicon.ico && npx angular-cli-ghpages --dir=dist/mi-portfolio"
   },
   "private": true,
   "dependencies": {
