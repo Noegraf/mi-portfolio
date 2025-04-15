@@ -508,7 +508,7 @@ export class ProjectsComponent {
     },
     {
       name: "PXM - Landing Page",
-      type: ["Landing Page", "UX/UI", "Branding", "Web3"],
+      type: ["Landing Page", "UX/UI", "Web3"],
       folderColor: "var(--color-secondary)",
       image: "assets/pantallas/pxm-landing.svg",
       notes: [

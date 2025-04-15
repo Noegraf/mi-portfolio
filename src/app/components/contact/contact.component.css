@@ -1,7 +1,18 @@
 
+.contact {
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+}
+
+
+
+
 /* -------- POSTAL --------- */
 .postal {
-  width: 80vh;
+  width: 80%;
   max-width: 600px;
   background: #fffdf4;
   border: 12px solid transparent;
@@ -93,17 +104,8 @@ form textarea:focus {
 
 }
 
-form button {
-  background-color: var(--color-secondary);
-color: var(--neutral-90);
-  cursor: var(--cursor-pointer);
-  transition: background 0.3s ease, transform 0.2s ease;
-}
 
-form button:hover {
-  background-color: var(--color-primary);
-  transform: scale(1.04);
-}
+
 
 input[type="email"]:not(:focus):not(:placeholder-shown):invalid {
   border-bottom-color: #f3a2a2;
@@ -299,35 +301,4 @@ input[type="email"]:focus:invalid {
   }
 }
 
-
-.buttons {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-
-.buttons a {
-  color: #413B3B;
-  text-decoration: none;
-  width: 56px;
-  height: 56px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 2px;
-  background: #FFFCFD;
-  
-}
-
-.buttons a:hover {
-  
-  color:var(--color-highlight);
-}
-
-.buttons a::selection {
-    animation: swashOut 0.5s;
-
-}
 

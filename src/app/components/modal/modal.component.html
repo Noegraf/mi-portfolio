@@ -14,7 +14,10 @@
 
       <div class="project-sheet">
         <!-- Botón cerrar -->
-        <button class="close-button" (click)="closeModal()">×</button>
+         <div class="close">
+          <button class="close-button" (click)="closeModal()"><img src="assets/close.svg" alt="cerrar"></button>
+         </div>
+       
 
 
 
@@ -58,7 +61,7 @@
 
 <!-- Carrusel compacto con imágenes desde extraImages -->
 <div class="carousel-container" *ngIf="project.details.extraImages?.length">
-  <button class="carousel-btn left" (click)="prevImage()">‹</button>
+  <button class="carousel-btn left" (click)="prevImage()"><img src="assets/left.svg" alt="flecha a la izquierda"></button>
 
   <div class="carousel-track" [style.transform]="'translateX(-' + currentImageIndex * 100 + '%)'">
     <div class="carousel-card" *ngFor="let img of project.details.extraImages">
@@ -66,7 +69,7 @@
     </div>
   </div>
 
-  <button class="carousel-btn right" (click)="nextImage()">›</button>
+  <button class="carousel-btn right" (click)="nextImage()"><img src="assets/right.svg" alt="flecha a la derecha"></button>
 
   <div class="carousel-indicators">
     <span 

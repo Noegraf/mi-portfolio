@@ -3,7 +3,7 @@
   <aside class="filter-sidebar">
     <!-- Sección de filtros por dispositivo -->
     <div class="filter-section">
-      <h4>Dispositivo</h4>
+      <h4>Filtrar</h4>
       <div class="device-filters">
         <button class="device-filter" [class.active]="filter === 'Desktop'" (click)="filter = 'Desktop'">
           <img src="assets/desktop-icon.svg" alt="Desktop" class="filter-icon">
@@ -18,7 +18,7 @@
 
     <!-- Sección de filtros por funcionalidad o tipo de proyecto -->
     <div class="filter-section">
-      <h4>Funcionalidades</h4>
+      
       <ul class="functionality-list">
         <li>
           <button class="func-checkbox" [class.active]="filter === 'UX/UI'" (click)="filter = 'UX/UI'">
@@ -45,6 +45,13 @@
           <button class="func-checkbox" [class.active]="filter === 'Web3'" (click)="filter = 'Web3'">
             Web3
             <span class="checkbox-square" [class.checked]="filter === 'Web3'"></span>
+            
+          </button>
+        </li>
+        <li>
+          <button class="func-checkbox" [class.active]="filter === 'Branding'" (click)="filter = 'Branding'">
+            Branding
+            <span class="checkbox-square" [class.checked]="filter === 'Branding'"></span>
             
           </button>
         </li>

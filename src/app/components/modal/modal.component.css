@@ -11,7 +11,7 @@
 
 .modal-glass {
   width: 100%;
-  height: 100%;
+  
   display: flex;
   justify-content: center;
   align-items: center;
@@ -34,17 +34,7 @@
   flex-grow: 1;
 }
 
-.close-button {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  width: 100%;
-  font-size: 2rem;
-  background: none;
-  border: none;
-  color: #444;
-  cursor: pointer;
-}
+
 
 /* ========= Encabezado ========= */
 .header {
@@ -52,11 +42,7 @@
   margin-bottom: 2rem;
 }
 
-.header h1 {
-  font-size: 2.5rem;
-  
-  letter-spacing: 0.05em;
-}
+
 
 .subtitle {
   font-style: italic;
@@ -66,7 +52,7 @@
 
 /* ========= Contenido del proyecto ========= */
 .project-sheet {
-  font-family: 'Georgia', serif;
+  font-family:var(--font-family-primary);
   background: #f8f7f4;
   padding: 2rem;
   border: 1px solid #e0dbd3;
@@ -76,8 +62,8 @@
 }
 
 .main-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 2rem;
+  font-family:var(--font-hand);
+  
   letter-spacing: 1px;
   border-bottom: 2px solid var(--accent-color);
   padding-bottom: 1rem;
@@ -93,11 +79,13 @@
 }
 
 .project-tags .tag {
-  background-color: #f1f1f1;
+  background-color: rgba(101, 90, 111, 0.2); /* --color-secondary con transparencia */
+  color: var(--neutral-30);
+  
   padding: 0.3rem 0.6rem;
-  border-radius: 8px;
+  border-radius: 4px;
   font-size: 0.8rem;
-  color: #333;
+
 }
 
 /* ========= Sketch ========= */
@@ -130,6 +118,7 @@
 
 /* ========= Observaciones ========= */
 .observations h2 {
+  font-family:var(--font-hand);
   font-size: 1.2rem;
   margin-bottom: 0.5rem;
   text-transform: uppercase;
@@ -140,34 +129,125 @@
 .observations ul {
   list-style: none;
   padding: 0;
-  font-family: 'Courier New', monospace;
+  
   font-size: 0.95rem;
   line-height: 1.6;
 }
 
-/* ========= Prototipo ========= */
+
+h3 {
+  font-family:var(--font-hand);
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 .prototype-link {
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 2rem;
-  border: var(--color-primary) solid 2px;
   border-radius: 1rem;
-  transition: transform 0.2s ease;
+  background-color: #fff;
+  border: 2px solid #666; /* estilo dibujado */
+  position: relative;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: var(--cursor-pointer) ;
 }
 
-.prototype-link:hover {
-  transform: scale(1.02);
-  box-shadow: #d1cfd2 0px 1px 4px;
-  background-color: var(--neutral-90);
+.prototype-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 24px;
+  width: 100%;
+  background: #f4f4f4;
+  border-bottom: 1px dashed #aaa;
   cursor: var(--cursor-pointer);
 }
 
-.prototype-icon-link img.icon {
-  width: 48px;
-  height: 48px;
-  transition: transform 0.2s ease;
+.prototype-link::after {
+  content: '';
+  cursor: var(--cursor-pointer);
+  position: absolute;
+  top: 6px;
+  left: 12px;
+  width: 8px;
+  height: 8px;
+  background: var(--color-highlight);
+  border-radius: 50%;
+  box-shadow:
+    12px 0 0 var(--color-highlight),
+    24px 0 0 var(--color-highlight);
+    
 }
+
+
+
+
+/* Hacer todo el bloque clickeable */
+.prototype-link a.prototype-icon-link {
+  position: absolute;
+  cursor: var(--cursor-pointer);
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+/* Icono con estilo boceto */
+.prototype-icon-link img.icon {
+  width: 56px;
+  height: 56px;
+  
+  transition: transform 0.3s ease;
+}
+
+/* Hover effects */
+.prototype-link:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+  background-color: #fcfcfc;
+  cursor: var(--cursor-pointer);
+}
+
+.prototype-link:hover img.icon {
+  transform: scale(1.1);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* ========= Íconos ========= */
 .icon {
@@ -208,7 +288,7 @@
 .detail-section,
 .prototype-link {
   flex: 1 1 0;
-  min-width: 220px;
+ width: 40px;
   padding: 1rem;
   border-radius: 12px;
   transition: transform 0.2s ease;
@@ -250,11 +330,12 @@
   display: flex;
   transition: transform 0.5s ease-in-out;
   width: 100%;
+  
 }
 
 .carousel-card {
   min-width: 100%;
-  flex-shrink: 0;
+ 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -269,56 +350,146 @@
   transition: transform 0.3s ease;
 }
 
-/* ===== Botones Flecha ===== */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===== Flechas Carrusel ===== */
 .carousel-btn {
   position: absolute;
-  top: 50%;
+  top: 40%;
   transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.5);
-  border: none;
-  font-size: 2rem;
+  background-color: rgba(101, 90, 111, 0.4); /* --color-secondary con transparencia */
+  color: var(--neutral-100);
+  border: 2px solid rgba(101, 90, 111, 0.3);
   cursor: var(--cursor-pointer);
   z-index: 5;
-  padding: 0.4rem 0.8rem;
-  
   backdrop-filter: blur(4px);
-  transition: background 0.3s ease;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: rgba(0, 0, 0, 0.2) 6px 10px 18px -6px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  height: 35.2px;
+  width: 35.2px;
 }
 
 .carousel-btn:hover {
-  background: rgba(255, 255, 255, 0.8);
-  box-shadow: var(--neutral-90) 0px 1px 4px;
+  background-color: rgba(179, 111, 255, 0.7); /* --color-highlight con transparencia */
+  border-color: rgba(179, 111, 255, 0.8);
+  box-shadow: rgba(0, 0, 0, 0.3) 4px 8px 16px -4px;
 }
 
-.carousel-btn.left {
-  left: 10px;
-}
+.carousel-btn.left { left: 0.2rem; }
+.carousel-btn.right { right: 0.2rem; }
 
-.carousel-btn.right {
-  right: 10px;
-}
-
-/* ===== Indicadores ===== */
+/* ===== Indicadores Carrusel ===== */
 .carousel-indicators {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   margin-top: 2rem;
 }
 
 .carousel-indicators span {
-  width: 10px;
-  height: 10px;
-  background-color: #ccc;
-  border-radius: 50%;
+ 
+  background-color: rgba(101, 90, 111, 0.6); /* --color-secondary con transparencia */
+  color: var(--neutral-100);
+  border: 2px solid rgba(101, 90, 111, 0.6);
+  border-radius: 4px;
   transition: all 0.3s ease;
+  opacity: 0.2;
 }
 
 .carousel-indicators span.active {
-  background-color: #333;
-  transform: scale(1.3);
+  background-color: rgba(179, 111, 255, 0.7); /* --color-highlight con transparencia */
+  border-color: rgba(179, 111, 255, 0.8);
+  opacity: 1;
+  transform: scale(1.4);
+  box-shadow: 0 0 6px rgba(179, 111, 255, 0.6);
 }
+
+/* ===== Navegación Proyectos ===== */
+.project-navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+
+
+
+
+.close {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+
+
+.close-button {
+  background-color: rgba(101, 90, 111, 0.4); /* --color-secondary con transparencia */
+  color: var(--neutral-100);
+  border: 2px solid rgba(101, 90, 111, 0.3);
+  cursor: var(--cursor-pointer);
+  padding: 0.5rem;
+  height: 35.2px;
+}
+
+.close-button img {
+  width: 1rem;
+
+}
+
+.close-button:hover {
+  background-color: var(--color-highlight);
+  border-color: var(--color-highlight);
+  box-shadow: rgba(0, 0, 0, 0.25) 3px 6px 12px -4px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -342,7 +513,7 @@
 .detail-section-notas,
 .carousel-container {
   flex: 1 1 0;
-  min-width: 220px;
+ 
   padding: 1rem;
   display: flex;
   flex-direction: column;
@@ -363,38 +534,4 @@
     width: 100%;
     flex-direction: column;
   }
-}
-
-
-
-
-
-.carousel-btn {
-  background-color: rgba(255,255,255,0.6);
-  border: none;
-  font-size: 2rem;
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 1;
-}
-
-.carousel-btn.left { left: 10px; }
-.carousel-btn.right { right: 10px; }
-
-.project-navigation {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 2rem;
-}
-
-.nav-btn {
-  background-color: var(--accent-color);
-  color: white;
-  border: none;
-  padding: 0.5rem 1rem;
-  font-weight: bold;
-  cursor: pointer;
-  border-radius: 6px;
 }

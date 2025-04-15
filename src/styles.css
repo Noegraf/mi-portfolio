@@ -26,39 +26,30 @@
   --tablet: 768px;
   --desktop: 1024px;
 
-
+  /* Cursors personalizados */
   --cursor-default: url(/assets/point.svg), auto;
   --cursor-pointer: url(/assets/pointhand.svg), pointer; 
   --cursor-highlight: url(/assets/pointmagic.svg), pointer;
   --cursor-search: url(/assets/search.svg), pointer;
   --cursor-mark: url(/assets/mark.svg), pointer;
-
-}
-
-
-.line-hand {
-  border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
-  border-style: solid;
-  border-width: 2px;
-  box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
-  box-sizing: border-box;
 }
 
 
 
-
+/* Estilo para botones .button-55 */
 .button-55 {
-  background-color: var(---primary-color);
+  background-color: var(--color-secondary); /* Corregido el uso de la variable */
   background-image: none;
   background-position: 0 90%;
   background-repeat: repeat no-repeat;
   background-size: 4px 3px;
+  border-color: var(--color-secondary);
   border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
   border-style: solid;
   border-width: 2px;
   box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
   box-sizing: border-box;
-  color: var(---primary-color);
+  color: var( --neutral-100); /* Corregido el uso de la variable */
   cursor: var(--cursor-pointer);
   display: flex;
   font-family: var(--font-family-primary);
@@ -82,14 +73,17 @@
 .button-55:hover {
   box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
   transform: translate3d(0, 2px, 0);
+  background-color: var(--color-primary);
+  
 }
 
 .button-55:focus {
   box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
+  background-color: var(--color-primary);
+  
 }
 
-
-/* <html data-theme="dark"> */
+/* Estilo del modo oscuro */
 [data-theme="dark"] {
   --color-primary: #B36FFF;
   --color-secondary: #a492c3;
@@ -109,9 +103,10 @@
   --cursor-pointer: url(/assets/pointhand.svg), pointer; 
   --cursor-highlight: url(/assets/pointmagic.svg), pointer;
   --cursor-search: url(/assets/search.svg), pointer;
+  --cursor-mark: url(/assets/mark.svg), pointer;
 }
 
-
+/* Estilo para desactivar el scroll */
 .no-scroll {
   overflow: hidden !important;
   height: 100vh;

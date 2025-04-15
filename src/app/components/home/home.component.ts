@@ -3,6 +3,7 @@ import { trigger, transition, style, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-home',
+  standalone: true,
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
   animations: [

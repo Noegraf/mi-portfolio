@@ -1,15 +1,33 @@
-
-/* ─────────────────────────────
-   FILTRO DE PROYECTOS (botones)
-───────────────────────────── */
-.filter-container {
-  text-align: center;
-  margin-bottom: 20px;
+.page-container {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
+  justify-content: flex-start; /* Centrado del contenido */
+  align-items: flex-start; /* Alineación en la parte superior */
+  width: 100%;
+  
+  gap: 20px; /* Espacio entre filtros y proyectos */
+  padding: 32px; /* Añadir un poco de espacio a los lados */
 }
+
+.filter-sidebar {
+  width: 25%; /* Controlamos el tamaño del sidebar */
+  padding: 20px;
+  background: var(--color-background); /* O el color que prefieras */
+  border-radius: 8px;
+}
+
+.projects-section {
+  margin-left: 24%;
+  display: flex;
+  flex-wrap: wrap; /* Para que los proyectos se acomoden en varias filas */
+  gap: 20px; /* Espacio entre los proyectos */
+  width: 100%; /* La sección de proyectos ocupa el 75% restante */
+  justify-content: flex-start;
+  overflow-y: auto;
+}
+
+
+
+
 
 /* Estilo para botón activo (Angular usa class.active, podrías cambiar #active a .active si querés más control) */
 #active {
@@ -33,16 +51,6 @@
 
 
 
-/* ─────────────────────────────
-   CONTENEDOR DE PROYECTOS
-───────────────────────────── */
-.projects-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 32px;
-  justify-content: center;
-  padding: 32px;
-}
 
 
 /* ─────────────────────────────
@@ -194,10 +202,7 @@
   height: 40px;
 }
 
-/* Hover para los botones de dispositivo */
-.device-btn:hover {
-  transform: scale(1.1);
-}
+
 
 /* Sección de filtros por funcionalidades */
 .filter-options {
@@ -240,18 +245,14 @@
 
 
 
-/* Contenedor general */
-.page-container {
-  display: flex;
-}
+
 
 /* ─────────────────────────────
      Menú Lateral de Filtros (papel recortado)
 ────────────────────────────── */
 .filter-sidebar {
   position: absolute;
-  left: 20px;         /* Ajusta según tu layout */
-  top: 20px;
+  left: 2rem;
   width: 260px;
   padding: 20px;
   background: #E7E0E8;           /* Color papel */
@@ -284,24 +285,22 @@
   border: none;
   cursor: var(--cursor-pointer);
   padding: 5px;
-  transition: transform 0.2s ease;
+  border: #333 1px solid opacity(0);
   font-family: var(--font-hand);
-  color: var(--color-secondary)
+  color: var(--color-secondary);
 }
 
 .device-filter:focus {
   outline: none;
+  border: var(--color-highlight) 1px solid;
 }
 
 .device-filter.active,
 .device-filter:hover {
-  transform: rotate(-2deg) scale(1.1);
-  color: var(--color-primary);
-  border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
-  border-style: solid;
-  border-width: 2px;
+ border: var(--color-secondary) 1px solid;
+
   box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
-  box-sizing: border-box;
+
 }
 
 .filter-icon {
@@ -327,36 +326,43 @@
 ────────────────────────────── */
 .reset-btn {
   background-color: var(--color-secondary);
-  border: none;
-  color: #fff;
-  padding: 8px;
-  font-family: 'Courier New', monospace;
-  border-radius: 4px;
+  color: var(--neutral-100);
+  padding: 0.7rem 1.2rem;
+ 
+
+  border: 2px dashed var(--color-primary); /* estilo tipo "dibujo" */
+
   cursor: var(--cursor-pointer);
-  transition: background 0.2s ease;
+  transition: all 0.25s ease;
   width: 100%;
   text-align: center;
-  margin-top: 15px;
+  margin-top: 1rem;
+  box-shadow: 4px 4px 0 var(--neutral-80);
+
 }
 
 .reset-btn:hover {
-  background: var(--color-primary);
+  background-color: var(--color-primary);
+  color: var(--neutral-100);
+  box-shadow: 2px 2px 0 var(--neutral-80);
+  transform: translate(1px, 1px);
 }
+
 
 /* ─────────────────────────────
      Sección de Proyectos
 ────────────────────────────── */
-.projects-section {
-  flex: 1;
-  padding: 20px;
-  margin-left: 320px;  /* Ajusta para dejar espacio al sidebar */
-}
+
 
 .projects-container {
   display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
+      gap: 20px;
+
+   
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      align-items: flex-start;
 }
 
 
