@@ -100,25 +100,6 @@ main {
 
 
 
-/* Fondos de sección con degradados mejorados */
-#home {
-  background: var(--color-background);
-}
-
-#projects {
-  background: var(--color-background);
-  display: flex;
-  justify-content: flex-start;
-}
-
-#about {
-  background: var(--color-background);
-}
-
-#contact {
-  background: var(--color-background);
- 
-}
 
 
 #footer {
