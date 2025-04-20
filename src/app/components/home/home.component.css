@@ -148,3 +148,72 @@ svg {
   gap: 10px;
 }
 
+@media screen and (max-width: 768px) {
+  .home-container {
+    flex-direction: column;
+    margin: 10% 5%;
+  }
+
+  .home-content {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .photo-frame {
+    padding: 8px;
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .photo {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .text-container {
+    align-items: center;
+    text-align: center;
+  }
+
+  .info {
+    align-items: center;
+  }
+
+  .name {
+    font-size: 24px;
+  }
+
+  .title {
+    font-size: 18px;
+  }
+
+  .button-55 {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .tape {
+    width: 50px;
+    height: 16px;
+    top: -8px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .name {
+    font-size: 20px;
+  }
+
+  .title {
+    font-size: 16px;
+  }
+
+  .photo-frame {
+    max-width: 240px;
+  }
+
+  .home-container {
+    margin: 15% 5%;
+  }
+}
