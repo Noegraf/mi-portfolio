@@ -8,6 +8,7 @@
   --color-tertiary: #884b6b;
   --color-background: #FFFCFD;
   --color-highlight: #B36FFF;
+  --color-detail: rgb(239, 219, 255, 0.8);
 
   --neutral-100: #ffffff;
   --neutral-90: #e6e2e1;
@@ -106,8 +107,3 @@
   --cursor-mark: url(/assets/mark.svg), pointer;
 }
 
-/* Estilo para desactivar el scroll */
-.no-scroll {
-  overflow: hidden !important;
-  height: 100vh;
-}

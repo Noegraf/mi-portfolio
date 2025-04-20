@@ -1,7 +1,7 @@
 body {
   padding: 50px;
   margin: 0;
-  background-color:var(--color-background);
+  background-color: var(--color-background);
   color: var(--neutral-10);
   font-size: 1.1em;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -21,7 +21,7 @@ body {
 }
 
 .container {
-  margin: 200px auto;
+  margin: 5% auto ; 
   max-width: 500px;
   perspective: 1200px;
   animation: cardAppear 1s ease-out forwards; /* Animación de aparición de la carta */
@@ -29,10 +29,8 @@ body {
 
 .element {
   width: 100%;
-  
   position: relative;
   transform-style: preserve-3d;
-
 }
 
 .cover {
@@ -75,10 +73,7 @@ body {
 
 .element:hover .content {
   opacity: 1; /* El contenido aparece al hacer hover */
-  
 }
-
-
 
 /* Efecto de iconos: Se escala y se colorea el icono */
 .icon {
@@ -86,16 +81,14 @@ body {
   height: auto;
   transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
   color: var(--color-highlight);
-  
   padding: 0 10px;
-  
 }
 
 .highlight {
   position: relative;
   display: inline-block;
   padding: 8px 4px 0px 8px;
-  border-radius: 6px;
+  
   cursor: var(--cursor-highlight);
 }
 
@@ -103,15 +96,13 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  border: 2px solid var(--color-highlight);
-  border-radius: 6px;
+  border-bottom: 2px solid var(--color-highlight);
+ 
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.3s ease-in-out;
   cursor: var(--cursor-highlight);
 }
-
-
 
 .highlight:hover::after {
   transform: scaleX(1);
@@ -124,4 +115,79 @@ body {
   cursor: var(--cursor-highlight);
 }
 
+/* Media Queries para dispositivos móviles */
+@media (max-width: 768px) {
+  /* Reducir el tamaño de la fuente para pantallas pequeñas */
+  body {
+    font-size: 1em;
+    padding: 20px;
+  }
 
+  .container {
+    margin: 100px auto;
+    max-width: 90%; /* Aprovecha más el espacio en pantallas más pequeñas */
+  }
+
+  .cover {
+    font-size: 20px; /* Ajustar el tamaño de la fuente */
+  }
+
+  .content {
+    padding: 15px;
+  }
+
+  .highlight {
+    font-size: 1rem; /* Reducir tamaño de los spans de texto */
+  }
+
+  .icon {
+    width: 25px; /* Reducir tamaño de los iconos */
+  }
+
+  /* Ajustar el padding y márgenes de los elementos para que se vean bien en móvil */
+  .element {
+    margin-bottom: 20px;
+  }
+
+  .cover p {
+    font-size: 1rem; /* Reducir tamaño de texto en el cover */
+  }
+
+  .content {
+    line-height: 1.6; /* Ajuste de interlineado en pantallas pequeñas */
+  }
+
+  /* Animación de resaltado en mobile con click/tap */
+  .highlight {
+    transform: scale(1.1);
+    
+    color: var(--color-highlight);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  /* Resaltar iconos al tocar */
+  .highlight .icon {
+    transform: scale(1.3);
+    color: var(--color-highlight);
+    transition: transform 0.3s ease-in-out;
+  }
+}
+
+/* Media Queries para pantallas más grandes, tabletas y desktop */
+@media (min-width: 769px) {
+  .container {
+    max-width: 600px; /* Ancho máximo en pantallas más grandes */
+  }
+
+  .cover p {
+    font-size: 1.5rem; /* Fuente más grande para pantallas grandes */
+  }
+
+  .content {
+    padding: 30px;
+  }
+
+  .icon {
+    width: 35px; /* Iconos un poco más grandes en pantallas grandes */
+  }
+}

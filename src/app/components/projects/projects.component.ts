@@ -823,6 +823,6 @@ export class ProjectsComponent {
     document.body.classList.remove('no-scroll'); // 🔥 Reactivar scroll al cerrar
   }
   
-  
+
   
 }

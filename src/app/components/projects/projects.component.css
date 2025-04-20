@@ -3,17 +3,12 @@
   justify-content: flex-start; /* Centrado del contenido */
   align-items: flex-start; /* Alineación en la parte superior */
   width: 100%;
-  
+  margin: 5% auto ; 
   gap: 20px; /* Espacio entre filtros y proyectos */
   padding: 32px; /* Añadir un poco de espacio a los lados */
 }
 
-.filter-sidebar {
-  width: 25%; /* Controlamos el tamaño del sidebar */
-  padding: 20px;
-  background: var(--color-background); /* O el color que prefieras */
-  border-radius: 8px;
-}
+
 
 .projects-section {
   margin-left: 24%;
@@ -95,7 +90,7 @@
   left: 10px;
   width: 190px;
   height: 140px;
-  background: rgba(255, 255, 255, 0.95);
+  background: var(--color-detail);
   border-radius: 5px;
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
   display: flex;
@@ -160,47 +155,6 @@
 
 
 
-/* Estilo general para el menú lateral (papel pegado a la izquierda) */
-.sidebar-filters {
-  position: absolute;
-  left: 20px;       /* Ajusta la posición horizontal según necesites */
-  top: 20px;        /* Ajusta la posición vertical según el layout */
-  width: 250px;
-  
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
-  transform: rotate(-1deg); /* Simula un papel pegado de manera informal */
- 
-}
-
-/* Títulos de cada sección */
-.sidebar-filters h4 {
-  font-size: 16px;
-  margin-bottom: 10px;
-  color: #333;
-  text-align: center;
-}
-
-/* Sección de filtros de dispositivo */
-.device-icons {
-  display: flex;
-  justify-content: space-around;
-  margin-bottom: 20px;
-}
-
-/* Botones de dispositivo */
-.device-btn {
-  background: transparent;
-  border: none;
-  cursor: var(--cursor-search);
-  transition: transform 0.3s ease;
-}
-
-.device-btn img {
-  width: 40px;
-  height: 40px;
-}
 
 
 
@@ -421,4 +375,49 @@
   border: solid white;
   border-width: 0 2px 2px 0;
   transform: rotate(45deg);
+}
+
+
+
+
+
+
+
+/* Estilos para el botón en móviles */
+.show-filters-btn {
+  display: none; /* Ocultar en pantallas grandes */
+  background-color: #2a9d8f;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 80%;
+  margin-top: 1rem;
+}
+
+
+/* Estilos del botón en pantallas pequeñas (max-width: 768px) */
+@media (max-width: 768px) {
+  .page-container {
+    flex-direction: column; /* Los filtros se colocan encima de los proyectos */
+  }
+
+  .filter-sidebar {
+
+    display: none; /* Los filtros están ocultos por defecto */
+  }
+
+  /* Mostrar los filtros cuando se active la clase 'active' */
+  .filter-sidebar.active {
+    display: block; /* Los filtros se muestran cuando se activa la clase 'active' */
+  }
+
+
+
+  .project-folder {
+    width: 80%; /* Los proyectos ocupan todo el ancho disponible */
+  }
+
+ 
 }

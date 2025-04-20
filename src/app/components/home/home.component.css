@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   height: 100%; 
-
+  margin: 5% auto ; 
   justify-content: center;
   
 }
@@ -41,7 +41,7 @@
   transform: translateX(-50%) rotate(-5deg);
   width: 60px;
   height: 20px;
-  background: var(--color-highlight);
+  background: var(--color-detail);
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
 

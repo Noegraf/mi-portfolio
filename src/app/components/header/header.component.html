@@ -1,10 +1,49 @@
-<nav>
-  <ul>
-    <li routerLink="/home" routerLinkActive="active" (click)="scrollToSection('home')">Inicio</li>
-    <li routerLink="/about" routerLinkActive="active" (click)="scrollToSection('about')">Sobre Mí</li>
-    <li routerLink="/timeline" routerLinkActive="active" (click)="scrollToSection('timeline')">Trayectoria</li>
-    <li routerLink="/projects" routerLinkActive="active" (click)="scrollToSection('projects')">Proyectos</li>
-    <li routerLink="/contact" routerLinkActive="active" (click)="scrollToSection('contact')">Contacto</li>
+<nav [class.menu-open]="menuOpen">
+  <div class="menu-toggle" [class.open]="menuOpen" (click)="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <ul [class.open]="menuOpen" #menuRef>
+    <li
+      routerLink="/home"
+      routerLinkActive="active"
+      (click)="navigateAndClose('home')"
+      [class.active]="isActive('/home')"
+    >
+      Inicio
+    </li>
+    <li
+      routerLink="/about"
+      routerLinkActive="active"
+      (click)="navigateAndClose('about')"
+      [class.active]="isActive('/about')"
+    >
+      Sobre Mí
+    </li>
+    <li
+      routerLink="/timeline"
+      routerLinkActive="active"
+      (click)="navigateAndClose('timeline')"
+      [class.active]="isActive('/timeline')"
+    >
+      Trayectoria
+    </li>
+    <li
+      routerLink="/projects"
+      routerLinkActive="active"
+      (click)="navigateAndClose('projects')"
+      [class.active]="isActive('/projects')"
+    >
+      Proyectos
+    </li>
+    <li
+      routerLink="/contact"
+      routerLinkActive="active"
+      (click)="navigateAndClose('contact')"
+      [class.active]="isActive('/contact')"
+    >
+      Contacto
+    </li>
   </ul>
 </nav>
-

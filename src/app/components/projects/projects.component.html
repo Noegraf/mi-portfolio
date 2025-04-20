@@ -1,13 +1,15 @@
 <div class="page-container">
+
+
+
   <!-- Menú lateral de filtros -->
   <aside class="filter-sidebar">
-    <!-- Sección de filtros por dispositivo -->
     <div class="filter-section">
       <h4>Filtrar</h4>
       <div class="device-filters">
         <button class="device-filter" [class.active]="filter === 'Desktop'" (click)="filter = 'Desktop'">
           <img src="assets/desktop-icon.svg" alt="Desktop" class="filter-icon">
-          <span >Desktop</span>
+          <span>Desktop</span>
         </button>
         <button class="device-filter" [class.active]="filter === 'Aplicación Móvil'" (click)="filter = 'Aplicación Móvil'">
           <img src="assets/mobile-icon.svg" alt="Móvil" class="filter-icon">
@@ -18,45 +20,38 @@
 
     <!-- Sección de filtros por funcionalidad o tipo de proyecto -->
     <div class="filter-section">
-      
       <ul class="functionality-list">
         <li>
           <button class="func-checkbox" [class.active]="filter === 'UX/UI'" (click)="filter = 'UX/UI'">
             UX/UI
             <span class="checkbox-square" [class.checked]="filter === 'UX/UI'"></span>
-            
           </button>
         </li>
         <li>
           <button class="func-checkbox" [class.active]="filter === 'Videojuego'" (click)="filter = 'Videojuego'">
             Videojuego
             <span class="checkbox-square" [class.checked]="filter === 'Videojuego'"></span>
-            
           </button>
         </li>
         <li>
           <button class="func-checkbox" [class.active]="filter === 'Landing Page'" (click)="filter = 'Landing Page'">
             Landing Page
             <span class="checkbox-square" [class.checked]="filter === 'Landing Page'"></span>
-            
           </button>
         </li>
         <li>
           <button class="func-checkbox" [class.active]="filter === 'Web3'" (click)="filter = 'Web3'">
             Web3
             <span class="checkbox-square" [class.checked]="filter === 'Web3'"></span>
-            
           </button>
         </li>
         <li>
           <button class="func-checkbox" [class.active]="filter === 'Branding'" (click)="filter = 'Branding'">
             Branding
             <span class="checkbox-square" [class.checked]="filter === 'Branding'"></span>
-            
           </button>
         </li>
       </ul>
-      
     </div>
 
     <!-- Botón para resetear filtros -->
@@ -68,38 +63,22 @@
   <!-- Sección de proyectos -->
   <section class="projects-section">
     <div class="projects-container">
-      <!-- Código original de la lista de proyectos -->
       <div *ngFor="let project of filteredProjects"
            class="project-folder"
            [style.background]="project.folderColor"
            (click)="openProjectModal(project)">
         <div class="folder-overlay">
           <img *ngIf="project.image" [src]="project.image" alt="Project Image">
-          
         </div>
-        
         <div class="solapa">
           <span class="project-type">{{ project.name }}</span>
         </div>
       </div>
     </div>
   </section>
+
+  
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
