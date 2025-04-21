@@ -2,7 +2,6 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-
 @Component({
   selector: 'app-contact',
   standalone: true,
@@ -11,7 +10,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   styleUrls: ['./contact.component.css'],
 })
 export class ContactComponent {
-  formspreeUrl = 'https://formspree.io/f/xpwpllwq';
+  // URL de la Web App de Google Apps Script (debes reemplazarla con la tuya)
+  googleSheetsUrl = 'https://script.google.com/macros/s/AKfycbzVdc1I00peEieI9Ofg7CSleCD-JXNxs6GJIlX9qwVLshNwPIxQN6u25jSe5TzWrXig/exec'; 
 
   nombre: string = '';
   correo: string = '';
@@ -70,22 +70,25 @@ export class ContactComponent {
     this.animarSalida = true;
     this.puertaAbierta = false;
 
-    const formData = new FormData();
-    formData.append('name', this.nombre);
-    formData.append('email', this.correo);
-    formData.append('message', this.mensaje);
-    formData.append('stamp', this.selloSeleccionado);
+    // Creamos el objeto de datos para enviar
+    const data = {
+      nombre: this.nombre,
+      correo: this.correo,
+      mensaje: this.mensaje,
+      sello: this.selloSeleccionado
+    };
 
-    fetch(this.formspreeUrl, {
+    // Usamos fetch para enviar los datos a la Web App de Google Apps Script
+    fetch(this.googleSheetsUrl, {
       method: 'POST',
-      body: formData,
-      headers: { 'Accept': 'application/json' },
+      body: JSON.stringify(data),
+      headers: { 'Content-Type': 'application/json' }
     })
       .then(response => {
         if (response.ok) {
           // Esperamos a que la carta salga antes de mostrar la caja
           setTimeout(() => {
-            this.successMessage = '¡Tu carta ha sido enviada con éxito! 💌';
+            this.successMessage = '¡Tu mensaje ha sido enviado con éxito! 💌';
             this.errorMessage = '';
             this.mostrarSello('success');
 
@@ -113,7 +116,7 @@ export class ContactComponent {
           }, 1500); // tiempo de salida de la carta
         } else {
           this.successMessage = '';
-          this.errorMessage = 'Ups... algo salió mal al enviar tu carta. Inténtalo de nuevo.';
+          this.errorMessage = 'Ups... algo salió mal al enviar tu mensaje. Inténtalo de nuevo.';
           this.mostrarSello('error');
           this.resetAnimaciones();
         }
