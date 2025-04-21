@@ -60,6 +60,60 @@
     </div>
   </aside>
 
+
+  
+
+
+<!-- Filtros para MÓVIL -->
+<div class="filter-dropdown-mobile">
+  <h4 class="filter-title-mobile">Filtrar</h4>
+
+  <div class="container-filter-mobile">
+
+
+  <details class="dropdown-details">
+    <summary class="dropdown-summary" [attr.data-selected]="filter || 'Tipo de proyecto'">
+      Tipo de proyecto
+    </summary>
+    <ul class="functionality-list-mobile">
+      <li>
+        <button class="func-checkbox" [class.active]="filter === 'Desktop'" (click)="filter = 'Desktop'" onclick="this.closest('details').removeAttribute('open')">Desktop</button>
+      </li>
+      <li>
+        <button class="func-checkbox" [class.active]="filter === 'Aplicación Móvil'" (click)="filter = 'Aplicación Móvil'" onclick="this.closest('details').removeAttribute('open')">Móvil</button>
+      </li>
+      <li>
+        <button class="func-checkbox" [class.active]="filter === 'UX/UI'" (click)="filter = 'UX/UI'" onclick="this.closest('details').removeAttribute('open')">UX/UI</button>
+      </li>
+      <li>
+        <button class="func-checkbox" [class.active]="filter === 'Videojuego'" (click)="filter = 'Videojuego'" onclick="this.closest('details').removeAttribute('open')">Videojuego</button>
+      </li>
+      <li>
+        <button class="func-checkbox" [class.active]="filter === 'Landing Page'" (click)="filter = 'Landing Page'" onclick="this.closest('details').removeAttribute('open')">Landing Page</button>
+      </li>
+      <li>
+        <button class="func-checkbox" [class.active]="filter === 'Web3'" (click)="filter = 'Web3'" onclick="this.closest('details').removeAttribute('open')">Web3</button>
+      </li>
+      <li>
+        <button class="func-checkbox" [class.active]="filter === 'Branding'" (click)="filter = 'Branding'" onclick="this.closest('details').removeAttribute('open')">Branding</button>
+      </li>
+    </ul>
+  </details>
+
+</div>
+
+  <div class="reset-btn-wrapper-mobile">
+    <button class="reset-btn" (click)="filter = 'Todos'">Ver Todos</button>
+  </div>
+</div>
+
+
+
+
+
+
+
+
   <!-- Sección de proyectos -->
   <section class="projects-section">
     <div class="projects-container">

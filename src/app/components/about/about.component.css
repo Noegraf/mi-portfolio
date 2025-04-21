@@ -134,6 +134,9 @@ body {
 
   .content {
     padding: 15px;
+    font-size: 1rem;
+    text-align:center ;
+    
   }
 
   .highlight {
@@ -141,7 +144,8 @@ body {
   }
 
   .icon {
-    width: 25px; /* Reducir tamaño de los iconos */
+    height: 1rem; /* Reducir tamaño de los iconos */
+    padding: 0.1rem;
   }
 
   /* Ajustar el padding y márgenes de los elementos para que se vean bien en móvil */
@@ -159,18 +163,32 @@ body {
 
   /* Animación de resaltado en mobile con click/tap */
   .highlight {
-    transform: scale(1.1);
+   padding: 0;
     
     color: var(--color-highlight);
-    transition: transform 0.3s ease-in-out;
+    transition: none;
   }
 
   /* Resaltar iconos al tocar */
   .highlight .icon {
-    transform: scale(1.3);
+    transform: none;
     color: var(--color-highlight);
     transition: transform 0.3s ease-in-out;
   }
+
+  .highlight:hover::after {
+    transform: none;
+  }
+
+  .highlight::after {
+    content: none; /* esto remueve el contenido del pseudo-elemento */
+    display: none;  /* asegura que no se renderice */
+    pointer-events: none; /* evita que se pueda clicar */
+    cursor: default; /* evita que parezca clickeable */
+    transition: none;
+    transform: none;
+  }
+  
 }
 
 /* Media Queries para pantallas más grandes, tabletas y desktop */

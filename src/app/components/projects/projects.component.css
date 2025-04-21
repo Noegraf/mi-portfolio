@@ -62,7 +62,7 @@
   border-radius: 5px 5px 2px 2px;
   box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.3);
   cursor: var(--cursor-search);
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  
 
 }
 
@@ -401,23 +401,150 @@
 @media (max-width: 768px) {
   .page-container {
     flex-direction: column; /* Los filtros se colocan encima de los proyectos */
+    width: 100%;
+    height: auto;
   }
 
-  .filter-sidebar {
-
-    display: none; /* Los filtros están ocultos por defecto */
+  .projects-container {
+    width: 100%;
   }
 
-  /* Mostrar los filtros cuando se active la clase 'active' */
-  .filter-sidebar.active {
-    display: block; /* Los filtros se muestran cuando se activa la clase 'active' */
-  }
-
-
-
-  .project-folder {
-    width: 80%; /* Los proyectos ocupan todo el ancho disponible */
+  .projects-section {
+    margin-left: 0;
+    display: flex;
+    flex-wrap: wrap; /* Para que los proyectos se acomoden en varias filas */
+    gap: 20px; /* Espacio entre los proyectos */
+    width: 100%; /* La sección de proyectos ocupa el 75% restante */
+    justify-content: flex-start;
+    overflow-y: auto;
   }
 
  
+}
+
+
+
+
+/* OCULTAR la versión de filtros lateral en mobile */
+@media (max-width: 768px) {
+  .filter-sidebar {
+    display: none;
+  }
+
+  .filter-dropdown-mobile {
+    margin-left: 0;
+    display: block;
+    width: 80%;
+    padding: 0.8rem;
+    background: #E7E0E8;  
+    gap: 0.5rem; 
+  }
+
+  .filter-title-mobile {
+    font-size: 1rem;
+    font-weight: bold;
+  
+  }
+
+  .container-filter-mobile {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .device-filters-mobile {
+    display: flex;
+   
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .dropdown-details {
+    width: 100%;
+    margin-bottom: 1.2rem;
+  }
+
+  .dropdown-summary {
+    background-color: #fff;
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    list-style: none;
+    height: 100%;
+  }
+
+  .functionality-list-mobile {
+    position: absolute;
+    z-index: 10;
+    margin: 0;
+    padding: 0.5rem 0;
+    list-style: none;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-top: none;
+    border-radius: 0 0 6px 6px;
+    width: 100%;
+  }
+
+  .functionality-list-mobile li {
+    padding: 0.5rem 1rem;
+  }
+
+  .func-checkbox {
+    width: 100%;
+    text-align: left;
+    border: none;
+    background: none;
+    padding: 0.4rem 0;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+
+  .func-checkbox.active {
+    font-weight: bold;
+    color: #333;
+  }
+
+  .reset-btn-wrapper-mobile {
+    text-align: center;
+  }
+}
+
+/* Mostrar solo la sidebar en desktop */
+@media (min-width: 769px) {
+  .filter-dropdown-mobile {
+    display: none;
+  }
+}
+
+
+
+/* Estilos para el dropdown */
+.filter-dropdown-mobile .dropdown-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.filter-dropdown-mobile .dropdown-summary::after {
+  content: attr(data-selected); /* Esto cambia el texto basado en el valor de data-selected */
+  color: var(--color-highlight); /* Cambiar color si es necesario */
+  font-weight: bold;
+  font-size: 1rem;
+  padding-left: 10px; /* Espaciado para el texto */
+}
+
+.filter-dropdown-mobile .func-checkbox {
+  width: 100%;
+}
+
+.filter-dropdown-mobile .func-checkbox.active {
+  background-color: #f0f0f0; /* O cualquier color que indique la opción activa */
+}
+
+.filter-dropdown-mobile .dropdown-details[open] .dropdown-summary {
+  background-color: #f5f5f5; /* Fondo cuando está abierto */
 }

@@ -1,134 +1,79 @@
-/* Reseteo general */
+/* ========== Reset básico ========== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  scroll-behavior: smooth;
-}
-
-.full-page > * {
-  width: 80%;
-  margin: 0 auto;
 }
 
 html, body {
   width: 100%;
-  height: auto;
   min-height: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   overflow-x: hidden;
-  overflow-y: auto;
   scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch; /* suaviza scroll en iOS */
-  touch-action: pan-y;
+  background-color: #f9f9f9;
 }
 
-/* Estilo del Header */
-header {
-  position: fixed;
+/* ========== Main layout ========== */
+main {
   width: 100%;
+}
+
+header, section, footer {
+  width: 100%;
+  padding: 4rem 2rem;
+}
+
+/* Si quieres que cada sección ocupe toda la pantalla */
+.full-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* ========== Modal y Loader fuera de main ========== */
+app-modal {
+  position: fixed;
   top: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.8);
-  padding: 15px 20px;
-  text-align: center;
-  z-index: 1;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  transition: background 0.3s ease-in-out;
-}
-
-main {
-   opacity: 0;
-  pointer-events: none;
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 70px; /* espacio para el header */
+  height: 100%;
+  z-index: 1000;
 }
 
-/* Secciones */
-.full-page {
-  width: 100%; /* Ocupa todo el ancho de la pantalla */
-  min-height: 100vh;
-  max-width: 100%;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 40px 20px;
-  opacity: 0;
-  transform: translateY(50px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-
-
-
-.full-page #projects {
+app-loading {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  padding: 40px 20px;
-  opacity: 0;
-  transform: translateY(50px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-  flex-wrap: wrap;
-  align-content: flex-start;
-  align-items: flex-start;
-}
-
-.loading-hidden {
-  opacity: 1;
-  pointer-events: auto;
-  transition: opacity 0.5s ease-in;
-}
-
-/* Podés incluso iniciar con esto en el main */
-main {
-  opacity: 0;
-  pointer-events: none;
+  height: 100%;
+  background-color: white;
+  z-index: 999;
 }
 
 
-
-/* Cuando se activa, la sección aparece con efecto */
-.full-page.visible {
-  opacity: 1;
-  transform: translateY(0);
+/* ========== Responsivo ========== */
+@media (max-width: 1200px) {
+  header, section, footer {
+    padding: 3rem 1.5rem;
+  }
 }
 
+@media (max-width: 768px) {
+  header, section, footer {
+    padding: 2rem 1rem;
+  }
 
-
-
-
-#footer {
-  background: var(--color-background);
-  min-height: auto;
-  height: auto;
-  padding: 20px;
-  width: 100%;
+  .full-page {
+    min-height: auto;
+    padding-top: 1rem;
+ 
+  }
 }
 
-
-
-
-.full-page {
-  transition: all 0.8s ease-in-out;
+@media (max-width: 480px) {
+  header, section, footer {
+    padding: 1.5rem 0.75rem;
+  }
 }
-
-.invisible-init {
-  opacity: 0;
-  transform: translateY(50px); /* o cambia por efecto deseado */
-}
-
-.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-

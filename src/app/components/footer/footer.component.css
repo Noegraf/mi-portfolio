@@ -11,11 +11,11 @@
 
 .footer-content {
   display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      width: 100%;
-      flex-wrap: wrap;
-      gap: 2rem;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 2rem;
 }
 
 .logo-section {
@@ -82,22 +82,65 @@ a {
 .footer-note {
   font-size: 0.8rem;
   color: var(--neutral-70);
+  text-align: center; /* Asegura que la nota esté centrada en móviles */
+  width: 100%; /* Ocupar todo el ancho disponible */
 }
 
-
-
-@media (max-width: var(--tablet)) {
+/* Media Query para dispositivos más pequeños (móviles y tablets) */
+@media (max-width: 768px) {
   .footer {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    padding: 1rem;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .logo-section {
+    align-items: center;
+    gap: 1rem;
   }
 
   .sectionright {
-    align-items: flex-start;
+    align-items: center;
+    gap: 1rem;
+    width: 100%; /* Aseguramos que ocupe todo el ancho */
   }
 
   .links-section {
-    justify-content: flex-start;
+    justify-content: center;
     flex-wrap: wrap;
+    gap: 0.8rem; /* Reducir el espacio entre los íconos */
+  }
+
+  .links-section a {
+    font-size: 1.2rem; /* Reducir tamaño de los íconos en móviles */
+  }
+
+  .footer-note {
+    font-size: 0.9rem;
+    text-align: center;
+    padding-top: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 0.8rem;
+  }
+
+  .footer-note {
+    font-size: 0.7rem; /* Reducir tamaño de texto en la nota */
+  }
+
+  .logo {
+    max-width: 100px; /* Hacer el logo un poco más pequeño en móviles muy pequeños */
+  }
+
+  .links-section a {
+    font-size: 1.1rem; /* Ajuste fino del tamaño de los íconos */
   }
 }
