@@ -510,6 +510,53 @@
   .reset-btn-wrapper-mobile {
     text-align: center;
   }
+
+  .page-container {
+    flex-direction: column; /* Los filtros se colocan encima de los proyectos */
+    width: 100%;
+    height: auto;
+  }
+
+  .projects-container {
+    width: 100%;
+  }
+
+  .projects-section {
+    margin-left: 0;
+    display: flex;
+    flex-wrap: wrap; /* Para que los proyectos se acomoden en varias filas */
+    gap: 20px; /* Espacio entre los proyectos */
+    width: 100%;
+    justify-content: flex-start;
+    overflow-y: auto;
+  }
+
+  /* Ajuste del tamaño de las carpetas en móvil */
+  .project-folder {
+    width: 150px; /* Reducido el tamaño de la carpeta */
+    height: 130px; /* Reducido el tamaño de la carpeta */
+  }
+
+  .folder-overlay {
+    width: 130px; /* Reducido el tamaño de la superposición */
+    height: 100px; /* Reducido el tamaño de la superposición */
+  }
+
+  .solapa {
+    height: 50px; /* Reducido el tamaño de la solapa */
+  }
+
+  .project-type {
+    font-size: 10px; /* Reducido el tamaño del texto */
+  }
+
+  /* Si quieres que las imágenes dentro de la carpeta también se ajusten */
+  .folder-overlay img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+  }
+  
 }
 
 /* Mostrar solo la sidebar en desktop */

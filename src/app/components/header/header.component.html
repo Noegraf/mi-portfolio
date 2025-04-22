@@ -6,44 +6,35 @@
   </div>
   <ul [class.open]="menuOpen" #menuRef>
     <li
-      routerLink="/home"
-      routerLinkActive="active"
       (click)="navigateAndClose('home')"
-      [class.active]="isActive('/home')"
+      [class.active]="isActive('home')"
     >
       Inicio
     </li>
     <li
-      routerLink="/about"
-      routerLinkActive="active"
       (click)="navigateAndClose('about')"
-      [class.active]="isActive('/about')"
+      [class.active]="isActive('about')"
     >
       Sobre Mí
     </li>
     <li
-      routerLink="/timeline"
-      routerLinkActive="active"
       (click)="navigateAndClose('timeline')"
-      [class.active]="isActive('/timeline')"
+      [class.active]="isActive('timeline')"
     >
       Trayectoria
     </li>
     <li
-      routerLink="/projects"
-      routerLinkActive="active"
       (click)="navigateAndClose('projects')"
-      [class.active]="isActive('/projects')"
+      [class.active]="isActive('projects')"
     >
       Proyectos
     </li>
     <li
-      routerLink="/contact"
-      routerLinkActive="active"
       (click)="navigateAndClose('contact')"
-      [class.active]="isActive('/contact')"
+      [class.active]="isActive('contact')"
     >
       Contacto
     </li>
   </ul>
 </nav>
+

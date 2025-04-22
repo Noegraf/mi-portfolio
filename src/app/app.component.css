@@ -1,36 +1,25 @@
 /* ========== Reset básico ========== */
 * {
   margin: 0;
-  padding: 0;
+  max-width: 100%;
   box-sizing: border-box;
 }
 
-html, body {
-  width: 100%;
-  min-height: 100%;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  overflow-x: hidden;
-  scroll-behavior: smooth;
-  background-color: #f9f9f9;
-}
 
 /* ========== Main layout ========== */
-main {
-  width: 100%;
-}
 
-header, section, footer {
-  width: 100%;
-  padding: 4rem 2rem;
-}
 
 /* Si quieres que cada sección ocupe toda la pantalla */
 .full-page {
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
+
   justify-content: center;
-}
+ 
+  width: 100%;
+  flex-direction: column;
+
+} 
 
 /* ========== Modal y Loader fuera de main ========== */
 app-modal {

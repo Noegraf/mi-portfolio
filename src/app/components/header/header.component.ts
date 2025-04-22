@@ -3,38 +3,51 @@ import {
   ElementRef,
   HostListener,
   ViewChild,
-  signal,
-  effect,
   AfterViewInit
 } from '@angular/core';
-import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule, RouterLink, RouterLinkActive],
+  imports: [CommonModule],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements AfterViewInit {
-  activeRoute = signal('');
   menuOpen = false;
+  visibleSection = '';
 
   @ViewChild('menuRef') menuRef!: ElementRef;
 
-  constructor(private router: Router) {
-    effect(() => {
-      this.activeRoute.set(this.router.url);
-    });
-  }
+  constructor() {}
 
   ngAfterViewInit(): void {
-    // Se usa para asegurar que el ViewChild esté definido
+    const sections = document.querySelectorAll('section[id]');
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            this.visibleSection = entry.target.id;
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    sections.forEach(section => observer.observe(section));
   }
 
-  isActive(route: string): boolean {
-    return this.activeRoute() === route;
+  // Verifica si la sección pasada está activa
+  isActive(sectionId: string): boolean {
+    return this.visibleSection === sectionId;
+  }
+
+  // Scroll suave a la sección y cierra el menú
+  navigateAndClose(section: string): void {
+    this.scrollToSection(section);
+    this.closeMenu();
   }
 
   scrollToSection(section: string): void {
@@ -49,11 +62,7 @@ export class HeaderComponent implements AfterViewInit {
     this.menuOpen = false;
   }
 
-  navigateAndClose(section: string): void {
-    this.scrollToSection(section);
-    this.closeMenu();
-  }
-
+  // Detecta clics fuera del menú para cerrarlo
   @HostListener('document:click', ['$event'])
   onClickOutside(event: MouseEvent): void {
     const clickedInside = this.menuRef?.nativeElement.contains(event.target);

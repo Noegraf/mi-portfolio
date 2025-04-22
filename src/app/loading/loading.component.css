@@ -44,3 +44,12 @@
     }
   }
   
+
+
+  /* Mobile-friendly extra ajuste */
+@media (max-width: 480px) {
+  .welcome-message {
+    font-size: clamp(0.5rem, 8vw, 3rem);
+    border-right: 2px solid var(--primary-color);
+  }
+}

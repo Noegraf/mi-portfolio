@@ -1,19 +1,15 @@
 
 .contact {
-  display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    flex-direction: column;
+  width: 40%;
+
+  margin: 0 auto;
 }
-
-
 
 
 /* -------- POSTAL --------- */
 .postal {
-  width: 80%;
-  max-width: 600px;
+
+
   background: #fffdf4;
   border: 12px solid transparent;
   border-image: repeating-linear-gradient(
@@ -25,7 +21,7 @@
   ) 12;
   border-radius: 15px;
   padding: 2rem;
-  margin: 5% auto ; 
+  margin: 1rem auto ; 
   position: relative;
   box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
   animation: fadeInUp 1.2s ease-out;

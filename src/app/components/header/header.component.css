@@ -2,7 +2,7 @@
 nav {
   position: fixed;
   top: 0;
-  left: 0;
+  right: 0;
   width: 100%;
   background-color: var(--color-background);
   padding: 1rem 2rem;
@@ -21,7 +21,7 @@ nav {
   width: 30px;
   height: 24px;
   cursor: pointer;
-  z-index: 1100;
+  z-index: 11;
 }
 
 .menu-toggle span {
@@ -106,7 +106,7 @@ li.active::after {
         align-items: flex-end;
         position: absolute;
         top: 100%;
-        left: 0;
+        right: 0;
         width: 100%;
         background-color: var(--color-background);
         max-height: 0;

@@ -53,6 +53,14 @@ export class AppComponent implements AfterViewInit, OnInit {
     // Simulamos una carga de 3 segundos antes de ocultar la pantalla de carga
     setTimeout(() => {
       this.isLoading = false;
+
+        // 🔸 Scroll al tope de la página al iniciar
+    window.scrollTo(0, 0);
+
+    // 🔸 Opcional: eliminar cualquier hash en la URL
+    history.pushState("", document.title, window.location.pathname + window.location.search);
+
+    
     }, 2500); // 3000 ms = 3 segundos
 
     
