@@ -1,13 +1,44 @@
+
+
+
+
 <div class="contact"> 
-  <!-- Caja de éxito con animación -->
-  <div class="caja-exito" [class.abierta]="animarCaja">
-    <div class="caja-tapa"></div>
-    <div class="caja-cuerpo">
-      <div *ngIf="successMessage" class="mensaje-feedback">
-        {{ successMessage }}
-      </div>
+
+
+
+<!--
+
+<div  [ngClass]="{'active': mostrarCartelExito}">
+  <div class="element" [ngClass]="{'opened': puertaAbierta}">
+    <div class="cover">
+      <h4>Cartas</h4>
+    </div>
+    <div *ngIf="successMessage" class="container" class="content">
+      <div class="mensaje">{{ successMessage }}</div>
     </div>
   </div>
+</div> -->
+
+
+<div [ngClass]="{'active': mostrarCartelExito}" class="container" [hidden]="!mostrarCartelExito">
+  
+    <div class="element" [class.opened]="puertaAbierta">
+    <div class="cover" [class.opened]="puertaAbierta" >
+      <h4>Cartas</h4>
+    </div>
+    <div class="content" [class.opened]="puertaAbierta">
+      <div class="mensaje">{{ successMessage }}</div>
+    </div>
+  </div>
+</div>
+  
+
+
+  
+
+
+
+
 
   <!-- Postal -->
   <div class="postal" 
@@ -70,3 +101,5 @@
     </div>
   </div>
 </div>
+
+

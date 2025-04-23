@@ -30,8 +30,7 @@ export class ContactComponent {
   selloFeedbackTipo: 'success' | 'error' = 'success';
   selloFeedbackSrc = 'assets/sello-feedback.svg';
 
-  mostrarCaja = false;
-  animarCaja = false;
+ 
 
   sellos = [
     { id: 'sello1', img: 'assets/estampillas/estampilla4.svg', nombre: 'Clásico' },
@@ -58,93 +57,75 @@ export class ContactComponent {
       this.errorMessage = 'Faltan datos';
       this.successMessage = '';
       this.mostrarSello('error');
-
-
-
-      // Evitamos que se animen la carta o la caja
-      this.animarSalida = false;
-      this.mostrarCaja = false;
-      this.animarCaja = false;
-
       return;
     }
-
-    // Comenzamos animación de salida de la carta
+  
     this.animarSalida = true;
-    this.puertaAbierta = false;
-
+    this.puertaAbierta = false; // cerramos la carta visualmente
+  
     const formData = new FormData();
     formData.append('name', this.nombre);
     formData.append('email', this.correo);
     formData.append('message', this.mensaje);
     formData.append('stamp', this.selloSeleccionado);
-
+  
     fetch(this.formspreeUrl, {
       method: 'POST',
       body: formData,
       headers: { 'Accept': 'application/json' },
     })
-      .then(response => {
-        if (response.ok) {
-          // Esperamos a que la carta salga antes de mostrar la caja
+    .then(response => {
+      if (response.ok) {
+        // Esperamos que termine la animación de salida
+        setTimeout(() => {
+          this.mostrarCartelExito = true;
+  
+          // Esperamos un poco para que el DOM pinte el cartel cerrado
           setTimeout(() => {
+            this.puertaAbierta = true; // ahora sí, animamos la apertura
+  
+            // Mostramos el mensaje y demás feedback
             this.successMessage = '¡Tu carta ha sido enviada con éxito! 💌';
             this.errorMessage = '';
             this.mostrarSello('success');
+  
+            // Después de unos segundos, todo se cierra y se resetea
 
-            this.mostrarCaja = true;
 
-            // Pequeño delay para animar apertura
+            // Después de unos segundos, todo se cierra y se resetea
             setTimeout(() => {
-              this.animarCaja = true;
-            }, 100);
-
-            this.mostrarCartelExito = true;
-
-            // Cerramos la caja luego de unos segundos
-            setTimeout(() => {
-              this.animarCaja = false;
-            }, 4000);
-
-            setTimeout(() => {
-              this.mostrarCaja = false;
-              this.successMessage = '';
+              this.puertaAbierta = false; // 🔥 ahora sí: cerramos la carta
               this.mostrarCartelExito = false;
-            }, 6000);
-
-            this.resetFormulario();
-          }, 1500); // tiempo de salida de la carta
-        } else {
-          this.successMessage = '';
-          this.errorMessage = 'Ups... algo salió mal al enviar tu carta. Inténtalo de nuevo.';
-          this.mostrarSello('error');
-          this.resetAnimaciones();
-        }
-      })
-      .catch(() => {
+              this.successMessage = '';
+              this.resetFormulario();
+            }, 3000); // tiempo visible el mensaje abierto
+  
+          }, 100); // delay pequeño para que se note la animación
+  
+        }, 1000); // tiempo para que termine animación de salida
+      } else {
         this.successMessage = '';
-        this.errorMessage = 'Sin conexión 😢. Verifica tu internet e intenta otra vez.';
+        this.errorMessage = 'Ups... algo salió mal al enviar tu carta. Inténtalo de nuevo.';
         this.mostrarSello('error');
         this.resetAnimaciones();
-      });
+      }
+    })
+    .catch(() => {
+      this.successMessage = '';
+      this.errorMessage = 'Sin conexión 😢. Verifica tu internet e intenta otra vez.';
+      this.mostrarSello('error');
+      this.resetAnimaciones();
+    });
   }
-
+  
   resetFormulario() {
     this.nombre = '';
     this.correo = '';
     this.mensaje = '';
-
-    // Dejamos que todo se vea unos segundos antes de resetear
-    setTimeout(() => {
-      this.successMessage = '';
-      this.mostrarCartelExito = false;
-      this.animarSalida = false;
-      this.puertaAbierta = true;
-    }, 5000);
-
-
+    this.animarSalida = false;
+    this.puertaAbierta = true; // vuelve a mostrarla lista para completar
   }
-
+  
 
 
 
@@ -152,9 +133,8 @@ export class ContactComponent {
 
   resetAnimaciones() {
     this.animarSalida = false;
-    this.puertaAbierta = true;
-    this.mostrarCaja = false;
-    this.animarCaja = false;
+    this.puertaAbierta = false;
+
   }
 
   mostrarSello(tipo: 'success' | 'error') {

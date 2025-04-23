@@ -90,10 +90,10 @@ li.active::after {
 @media (max-width: 768px) {
   nav {
     flex-direction: row;
-    padding: 1rem;
+   
     display: flex;
     justify-content: flex-end;
-    width: 88%;
+  
   }
 
   .menu-toggle {

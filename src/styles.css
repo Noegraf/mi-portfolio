@@ -119,3 +119,10 @@ html, body {
   --cursor-mark: url(/assets/mark.svg), pointer;
 }
 
+@media (max-width: 768px) {
+  .button-55 {
+    font-size: 0.8rem;
+    background-size: 2px 1.5px;
+    line-height: 12px;
+  }
+}
