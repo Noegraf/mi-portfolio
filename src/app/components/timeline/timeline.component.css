@@ -184,15 +184,12 @@ margin: 1rem;
     scroll-snap-align: center;
     width: 100%;
 
-   
-    padding: 1rem;
- 
-    background-color: var(--neutral-90);
+
    
   }
   
   .timeline-item.selected {
-    opacity: none;
+    
     filter: none;
     transform: none;
   }
@@ -246,9 +243,9 @@ margin: 1rem;
 
 @media (max-width: 480px) {
   .timeline-item {
-    min-width: 95%;
+
     max-width: 95%;
-    padding: 0.75rem;
+
   }
 
   .content h3 {

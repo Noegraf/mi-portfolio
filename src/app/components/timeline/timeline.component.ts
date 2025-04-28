@@ -1,5 +1,4 @@
-
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -9,12 +8,12 @@ import { CommonModule } from '@angular/common';
   templateUrl: './timeline.component.html',
   styleUrls: ['./timeline.component.css']
 })
-export class TimelineComponent implements OnInit {
+export class TimelineComponent implements OnInit, AfterViewInit {
   selectedIndex: number = 0;
   public Object = Object;
 
-  // Referencia al contenedor de la línea de tiempo
   @ViewChild('timelineWrapper') timelineWrapper!: ElementRef;
+
 
   timelineItemsData = [
     // Aquí van los elementos de la línea de tiempo
@@ -43,122 +42,118 @@ export class TimelineComponent implements OnInit {
       { title: 'Full Stack', description: 'Certificación oficial de desarrollo web. Construí aplicaciones con Angular, Node.js y bases de datos NoSQL en proyectos reales.', date: '2021', type: 'certification' }
     ];
 
-  constructor() { }
 
-  ngOnInit(): void {
-    this.sortTimelineItems();
+    groupedTimeline: { [year: string]: any[] } = {};
+    timelineYears: string[] = [];
   
-    this.groupTimelineItemsByYear();
-    this.sortTimelineItems();
-    this.groupTimelineItemsByYear();
-    this.generateTimelineYears();
-  }
-
-  // Función para ordenar los elementos por fecha
-  sortTimelineItems(): void {
-    this.timelineItemsData.sort((a, b) => {
-      const dateA = this.parseDate(a.date);
-      const dateB = this.parseDate(b.date);
-
-      if (dateA < dateB) return -1;
-      if (dateA > dateB) return 1;
-      return 0;
-    });
-  }
-
-  // Función para convertir una fecha en formato string a un objeto Date
-  parseDate(dateStr: string): Date {
-    const [startDate, endDate] = dateStr.split(' - ');
-    const year = parseInt(startDate.match(/\d{4}/)?.[0] ?? '0');
-    return new Date(year, 0); // Devuelve el 1 de enero de ese año
-  }
-
-  selectItem(index: number): void {
-    this.selectedIndex = index;
-    this.scrollToItem(index); // Desplazar al hito seleccionado
-  }
-
-  nextItem(): void {
-    if (this.selectedIndex < this.timelineItemsData.length - 1) {
-      this.selectedIndex++;
-      this.scrollToItem(this.selectedIndex); // Desplazar al siguiente hito
+    constructor() {}
+  
+    ngOnInit(): void {
+      this.sortTimelineItems();
+      this.groupTimelineItemsByYear();
+      this.generateTimelineYears();
     }
-  }
-
-  prevItem(): void {
-    if (this.selectedIndex > 0) {
-      this.selectedIndex--;
-      this.scrollToItem(this.selectedIndex); // Desplazar al hito anterior
+  
+    ngAfterViewInit(): void {
+      this.timelineWrapper.nativeElement.addEventListener('scroll', this.detectActiveItem.bind(this));
     }
-  }
-
-  scrollToItem(index: number): void {
-    setTimeout(() => {
-      const timelineWrapper = this.timelineWrapper.nativeElement;
-      const timelineItems = timelineWrapper.children;
-      const selectedItem = timelineItems[index];
   
-      if (selectedItem) {
-        selectedItem.scrollIntoView({
-          behavior: 'smooth',
-          block: 'nearest', 
-          inline: 'center'
-        });
+    sortTimelineItems(): void {
+      this.timelineItemsData.sort((a, b) => this.parseDate(a.date).getTime() - this.parseDate(b.date).getTime());
+    }
   
-        // Ajuste manual para garantizar el centrado
-        const wrapperRect = timelineWrapper.getBoundingClientRect();
-        const itemRect = selectedItem.getBoundingClientRect();
-        const offset = (wrapperRect.width / 2) - (itemRect.width / 2);
+    parseDate(dateStr: string): Date {
+      const [startDate] = dateStr.split(' - ');
+      const year = parseInt(startDate.match(/\d{4}/)?.[0] ?? '0');
+      return new Date(year, 0);
+    }
   
-        timelineWrapper.scrollBy({
-          left: itemRect.left - wrapperRect.left - offset,
-          behavior: 'smooth'
-        });
+    selectItem(index: number): void {
+      this.selectedIndex = index;
+      this.scrollToItem(index);
+    }
+  
+    nextItem(): void {
+      if (this.selectedIndex < this.timelineItemsData.length - 1) {
+        this.selectItem(this.selectedIndex + 1);
       }
-    }, 100);
-  }
-
-  get selectedYear(): string {
-    const start = this.timelineItemsData[this.selectedIndex]?.date.split(' - ')[0];
-    return start?.substring(start.length - 4) || '';
-  }
-
-
-  groupedTimeline: { [year: string]: any[] } = {};
-
-
-groupTimelineItemsByYear(): void {
-  this.groupedTimeline = {};
-
-  for (const item of this.timelineItemsData) {
-    const year = this.parseDate(item.date).getFullYear().toString();
-
-    if (!this.groupedTimeline[year]) {
-      this.groupedTimeline[year] = [];
     }
-
-    this.groupedTimeline[year].push(item);
+  
+    prevItem(): void {
+      if (this.selectedIndex > 0) {
+        this.selectItem(this.selectedIndex - 1);
+      }
+    }
+  
+    scrollToItem(index: number): void {
+      setTimeout(() => {
+        const wrapper = this.timelineWrapper.nativeElement;
+        const items = wrapper.children;
+        const selected = items[index];
+  
+        if (selected) {
+          selected.scrollIntoView({
+            behavior: 'smooth',
+            inline: 'center',
+            block: 'nearest'
+          });
+  
+          const wrapperRect = wrapper.getBoundingClientRect();
+          const itemRect = selected.getBoundingClientRect();
+          const offset = (wrapperRect.width / 2) - (itemRect.width / 2);
+  
+          wrapper.scrollBy({
+            left: itemRect.left - wrapperRect.left - offset,
+            behavior: 'smooth'
+          });
+        }
+      }, 100);
+    }
+  
+    detectActiveItem(): void {
+      const wrapper = this.timelineWrapper.nativeElement;
+      const items = wrapper.children;
+      let closestIndex = 0;
+      let closestDistance = Infinity;
+  
+      for (let i = 0; i < items.length; i++) {
+        const item = items[i];
+        const rect = item.getBoundingClientRect();
+        const distance = Math.abs((rect.left + rect.right) / 2 - window.innerWidth / 2);
+  
+        if (distance < closestDistance) {
+          closestDistance = distance;
+          closestIndex = i;
+        }
+      }
+  
+      if (this.selectedIndex !== closestIndex) {
+        this.selectedIndex = closestIndex;
+      }
+    }
+  
+    get selectedYear(): string {
+      const start = this.timelineItemsData[this.selectedIndex]?.date.split(' - ')[0];
+      return start?.substring(start.length - 4) || '';
+    }
+  
+    groupTimelineItemsByYear(): void {
+      this.groupedTimeline = {};
+      for (const item of this.timelineItemsData) {
+        const year = this.parseDate(item.date).getFullYear().toString();
+        if (!this.groupedTimeline[year]) {
+          this.groupedTimeline[year] = [];
+        }
+        this.groupedTimeline[year].push(item);
+      }
+    }
+  
+    generateTimelineYears(): void {
+      const yearsSet = new Set<string>();
+      for (const item of this.timelineItemsData) {
+        const year = this.parseDate(item.date).getFullYear().toString();
+        yearsSet.add(year);
+      }
+      this.timelineYears = Array.from(yearsSet).sort();
+    }
   }
-}
-
-
-timelineYears: string[] = [];
-
-
-generateTimelineYears(): void {
-  const yearsSet = new Set<string>();
-  for (const item of this.timelineItemsData) {
-    const year = this.parseDate(item.date).getFullYear().toString();
-    yearsSet.add(year);
-  }
-  this.timelineYears = Array.from(yearsSet).sort();
-}
-
-
-
-
-
-
-
-
-}
