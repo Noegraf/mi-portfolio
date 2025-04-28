@@ -148,6 +148,8 @@ svg {
   gap: 10px;
 }
 
+
+
 @media screen and (max-width: 768px) {
   .home-container {
     flex-direction: column;

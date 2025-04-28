@@ -49,7 +49,7 @@
   /* Mobile-friendly extra ajuste */
 @media (max-width: 480px) {
   .welcome-message {
-    font-size: clamp(0.5rem, 8vw, 3rem);
+    font-size: clamp(0.4rem, 7vw, 2rem);
     border-right: 2px solid var(--primary-color);
   }
 }

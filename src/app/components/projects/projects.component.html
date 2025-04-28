@@ -72,8 +72,9 @@
 
 
   <details class="dropdown-details">
-    <summary class="dropdown-summary" [attr.data-selected]="filter || 'Tipo de proyecto'">
-      Tipo de proyecto
+    <summary class="dropdown-summary">
+      {{ filter || 'Tipo de proyecto' }}
+      <span class="chevron">&#9662;</span> <!-- Chevron hacia abajo -->
     </summary>
     <ul class="functionality-list-mobile">
       <li>

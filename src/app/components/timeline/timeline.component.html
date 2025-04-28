@@ -24,6 +24,14 @@
       </div>
     </div>
 
+    <div class="timeline-progress">
+      <div
+        class="timeline-dot"
+        *ngFor="let item of timelineItemsData; let i = index"
+        [class.active]="i === selectedIndex">
+      </div>
+    </div>
+
     <button (click)="nextItem()" class="button-55"><img src="assets/arrowright.svg" alt="Icono flecha a la derecha" class="arrow">
     </button>
   </div>

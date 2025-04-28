@@ -44,7 +44,7 @@ app-loading {
 
 /* ========== Responsivo ========== */
 @media (max-width: 1200px) {
-  header, section, footer {
+  header, section {
     padding: 3rem 1.5rem;
   }
 }
@@ -55,7 +55,7 @@ app-loading {
   }
 
   .full-page {
-    min-height: auto;
+
     padding-top: 1rem;
  
   }

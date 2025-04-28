@@ -461,19 +461,33 @@
 
   .dropdown-details {
     width: 100%;
-    margin-bottom: 1.2rem;
+  
   }
 
   .dropdown-summary {
-    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
     padding: 0.8rem;
     border: 1px solid #ccc;
     border-radius: 6px;
-    font-weight: 500;
+    background-color: #fff;
     cursor: pointer;
-    list-style: none;
-    height: 100%;
+    position: relative;
   }
+  
+  .chevron {
+    font-size: 0.9rem;
+    transition: transform 0.3s ease;
+  }
+  
+  /* Chevron apunta arriba cuando está abierto */
+  .dropdown-details[open] .chevron {
+    transform: rotate(180deg);
+  }
+
 
   .functionality-list-mobile {
     position: absolute;
@@ -548,6 +562,8 @@
 
   .project-type {
     font-size: 10px; /* Reducido el tamaño del texto */
+    text-align: center;
+    padding: 4px;
   }
 
   /* Si quieres que las imágenes dentro de la carpeta también se ajusten */
@@ -576,13 +592,7 @@
   height: 100%;
 }
 
-.filter-dropdown-mobile .dropdown-summary::after {
-  content: attr(data-selected); /* Esto cambia el texto basado en el valor de data-selected */
-  color: var(--color-highlight); /* Cambiar color si es necesario */
-  font-weight: bold;
-  font-size: 1rem;
-  padding-left: 10px; /* Espaciado para el texto */
-}
+
 
 .filter-dropdown-mobile .func-checkbox {
   width: 100%;

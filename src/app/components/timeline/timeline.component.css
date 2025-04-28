@@ -144,68 +144,145 @@ margin: 1rem;
   .timeline-item.last-item {
     padding-right: 2rem;
   }
+
+  .timeline-item.selected {
+    opacity: none;
+    filter: none;
+    transform: none;
+  }
 }
 
+
+
 @media (max-width: 768px) {
+
   .timeline-container {
-    width: 100%;
-    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
   }
 
   .timeline-wrapper {
-    gap: 0.5rem;
-    padding: 0.5rem;
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    gap: 1rem;
+    padding: 1rem 0;
+    width: 100%;
+
+    height: 100%;
+  }
+
+  .timeline-wrapper::-webkit-scrollbar {
+    display: none;
   }
 
   .timeline-item {
+    flex: 0 0 auto;
+    scroll-snap-align: center;
     width: 100%;
-    min-width: 100%;
-    padding: 0;
-    display: flex;
-    justify-content: center;
+
+   
+    padding: 1rem;
+ 
+    background-color: var(--neutral-90);
+   
+  }
+  
+  .timeline-item.selected {
+    opacity: none;
+    filter: none;
+    transform: none;
   }
 
   .timeline-content {
-    width: 90%;
-    min-width: 90%;
-    max-width: 90%;
-    min-height: 140px;
-    box-sizing: border-box;
-  }
-
-  .year {
-    padding-left: 7.5rem;
-    text-align: center;
     width: 100%;
-  }
-
-  .timeline-item.first-item,
-  .timeline-item.last-item {
-    padding: 0;
-  }
-}
-
-@media (max-width: 480px) {
-  .timeline-content {
-    width: 95%;
-    min-width: 95%;
-    max-width: 95%;
-    min-height: 130px;
-  }
-
-  .year h1 {
-    font-size: 1rem;
-  }
-
-  .content h3 {
-    font-size: 0.9rem;
-  }
-
-  .content p {
-    font-size: 0.75rem;
+    background-color: none;
+    box-shadow: none;
   }
 
   .button-55 {
-    margin: 0.5rem;
+    display: none;
+  }
+
+  .year {
+    text-align: center;
+    padding: 1rem 0 1rem 1rem;
+
+  }
+
+  .content h3 {
+    font-size: 1rem;
+  }
+
+  .content p {
+    font-size: 0.85rem;
+  }
+
+  .timeline-progress {
+    display: flex;
+    justify-content: center;
+    gap: 0.4rem;
+    margin-top: 0.5rem;
+  }
+
+  .timeline-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #ccc;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+  }
+
+  .timeline-dot.active {
+    background-color: var(--color-highlight);
+  }
+}
+
+
+
+
+@media (max-width: 480px) {
+  .timeline-item {
+    min-width: 95%;
+    max-width: 95%;
+    padding: 0.75rem;
+  }
+
+  .content h3 {
+    font-size: 1rem;
+  }
+
+  .content p {
+    font-size: 1rem;
+  }
+
+  .year h1 {
+    font-size: 1.5rem;
+  }
+
+  .button-55 {
+    display: none;
+  }
+
+  .timeline-progress {
+    display: flex;
+    justify-content: center;
+    gap: 0.4rem;
+    margin-top: 0.5rem;
+  }
+
+  .timeline-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #ccc;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+  }
+
+  .timeline-dot.active {
+    background-color: var(--color-highlight);
   }
 }
