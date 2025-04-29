@@ -220,6 +220,7 @@ input[type="email"]:focus:invalid {
 .element.opened .cover {
   transform: rotateX(180deg);
   transition: transform 1s ease-in-out;
+  
 }
 
 .element.opened .cover h4 {
