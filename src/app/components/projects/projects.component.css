@@ -17,7 +17,7 @@
   gap: 20px; /* Espacio entre los proyectos */
   width: 100%; /* La sección de proyectos ocupa el 75% restante */
   justify-content: flex-start;
-  overflow-y: auto;
+  
 }
 
 
@@ -60,7 +60,7 @@
   width: 220px;
   height: 188px;
   border-radius: 5px 5px 2px 2px;
-  box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.3);
+  
   cursor: var(--cursor-search);
   
 
@@ -79,8 +79,8 @@
 } 
 
 .project-folder:hover {
- 
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.3);
+
 }
 
 /* ─ Overlay: Hojas dentro de la carpeta */
@@ -101,7 +101,7 @@
   z-index: 2;
 }
 
-/* ⚠️ Esta clase puede ser útil si querés reemplazar imagen de fondo total */
+/* ⚠️ Imagen de fondo total */
 .folder-image {
   position: absolute;
   top: 0;
@@ -116,6 +116,7 @@
 .project-folder:hover .folder-overlay {
   transform: rotate(-3deg) translateY(-5px);
   opacity: 1;
+  
 }
 
 /* Simulación de capas de papel dentro de la carpeta */
@@ -130,6 +131,7 @@
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease-in-out;
   z-index: -3;
+  
 }
 
 .folder-overlay::before {
@@ -146,10 +148,12 @@
 
 .project-folder:hover .folder-overlay::before {
   transform: rotate(-5deg) translateY(-10px);
+ 
 }
 
 .project-folder:hover .folder-overlay::after {
   transform: rotate(5deg) translateY(-15px);
+  
 }
 
 

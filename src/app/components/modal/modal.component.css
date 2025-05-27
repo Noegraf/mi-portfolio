@@ -20,7 +20,7 @@
 
 .modal-container {
   width: 80%;
-  background: white;
+
   border-radius: 12px;
   overflow: hidden;
   display: flex;
@@ -32,6 +32,7 @@
   overflow-y: auto;
   max-height: calc(95vh - 4rem);
   flex-grow: 1;
+  
 }
 
 
@@ -53,7 +54,7 @@
 /* ========= Contenido del proyecto ========= */
 .project-sheet {
   font-family:var(--font-family-primary);
-  background: #f8f7f4;
+    background-color: var(--neutral-100);
   padding: 2rem;
   border: 1px solid #e0dbd3;
   max-width: 100%;
@@ -111,9 +112,10 @@
 }
 
 .sketch figcaption {
-  font-size: 0.85rem;
- 
-  color: #666;
+  font-size: 0.7rem;
+  font-style: italic;
+ margin-top: 1rem;
+  color: var(--neutral-70);
 }
 
 /* ========= Observaciones ========= */
@@ -144,8 +146,9 @@ h3 {
   font-size: 1.2rem;
   margin-bottom: 0.5rem;
   text-transform: uppercase;
-  font-weight: 400;
+  
   letter-spacing: 0.05em;
+       font-weight: bold;
 }
 
 
@@ -306,6 +309,7 @@ h3 {
   flex-direction: column;
   align-items: flex-start;
   width: 100%;
+
  
 }
 
@@ -523,6 +527,7 @@ h3 {
   flex-direction: column;
   
   justify-content: flex-start;
+  
 }
 
 
@@ -605,17 +610,20 @@ h3 {
       
         width: 100%;
         gap: 0.1rem;
+        
   }
 
   .detail-section {
   
     width: 100%;
+    
   }
 
   .detail-section-notas h3,
   .detail-section h3 {
     font-size: 1rem;
     margin-top: 1rem;
+     font-weight: bold;
   }
 
   ul {

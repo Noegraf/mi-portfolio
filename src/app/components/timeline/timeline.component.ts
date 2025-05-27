@@ -19,7 +19,7 @@ export class TimelineComponent implements OnInit, AfterViewInit {
     // Aquí van los elementos de la línea de tiempo
 
       // Experiencia profesional
-      { title: 'Diseñadora UX/UI en Umaru Danladi & Danladi Design', description: 'Estudio de diseño con base en Canadá que crea soluciones digitales avanzadas. Realicé análisis de usuarios, wireframes y prototipos interactivos en Figma centrados en diseños de IA para optimizar la accesibilidad y la usabilidad.', date: 'Feb 2025 - Mar 2025', type: 'experience' },
+      { title: 'Diseñadora UX/UI en Umaru Danladi & Danladi Design', description: 'Estudio de diseño con base en Canadá que crea soluciones digitales avanzadas. Realicé análisis de flujos, wireframes y prototipos interactivos en Figma centrados en diseños de IA para optimizar la accesibilidad y la usabilidad.', date: 'Feb 2025 - Mar 2025', type: 'experience' },
       { title: 'Diseñadora UX/UI en Disruptive Talent', description: 'Startup de HR tech en México especializada en matching entre talento y empresas. Diseñé flujos de usuario y prototipos de alta fidelidad, iterando mejoras basadas en pruebas de usabilidad para aumentar la eficiencia del onboarding.', date: 'Dic 2024 - Feb 2025', type: 'experience' },
       { title: 'Diseñadora UX/UI en Consultora Disruptive', description: 'Firma de consultoría digital en México enfocada en transformación UX y metodologías ágiles. Rediseñé interfaces corporativas basadas en métricas de uso y pruebas de usuario, mejorando la claridad de navegación.', date: 'Sep 2024 - Dic 2024', type: 'experience' },
       { title: 'Diseñadora de Producto en MicaIA', description: 'Edtech argentina que desarrolla soluciones de IA para educación personalizada. Diseñé interfaces accesibles para niños neurodivergentes, implementando microinteracciones lúdicas y validando flujos en prototipos interactivos.', date: 'May 2024 - Nov 2024', type: 'experience' },
@@ -30,21 +30,22 @@ export class TimelineComponent implements OnInit, AfterViewInit {
       { title: 'Diseñadora Web en Macrotécnica', description: 'Agencia de construcción en Colombia. Creé la identidad visual y el diseño de la landing page de la empresa.', date: 'Ene 2023 - Mar 2023', type: 'experience' },
       { title: 'Diseñadora UX/UI en Assure for Life', description: 'Insurtech de EE.UU. especializada en seguros de vida digitales. Rediseñé la arquitectura de información de plataformas web y móviles para mejorar la experiencia de usuario.', date: 'Nov 2022 - Dic 2022', type: 'experience' },
       // Educación y certificaciones
-      { title: 'Diplomatura UX/UI', description: 'Programa oficial de la UTN-BA en modalidad e‑learning. Aprendí investigación de usuarios, prototipado en Figma y validación de usabilidad remota.', date: '2024 - Actualidad', type: 'education' },
-      { title: 'Desarrollador Full Stack Junior', description: 'Instituto en Argentina con enfoque MERN. Estudié Node.js, Express, MongoDB y Angular, y desarrollé proyectos integrales de front‑end y back‑end.', date: '2022 - 2023', type: 'education' },
+      { title: 'Diplomatura UX/UI', description: 'Programa oficial de la UTN-BA en modalidad e‑learning. Aprendí investigación de usuarios, prototipado en Figma y validación de usabilidad remota. ', date: '2024 - 2025', type: 'education' },
+      { title: 'Desarrollador Full Stack Junior', description: 'Diplomatura MERN en ISPC Córdoba, con énfasis en Node.js, Express, MongoDB y Angular. Desarrollé proyectos full-stack integrando API REST y SPAs. 1 año aprobado.', date: '2022 - 2023', type: 'education' },
       { title: 'Diseño UX/UI', description: 'Curso intensivo en Buenos Aires. Adquirí fundamentos de arquitectura de información, wireframing y tests de usabilidad.', date: '2022', type: 'education' },
-      { title: 'Licenciatura en Bellas Artes', description: 'Universidad Nacional de Rosario, especialidad en Bellas Artes. Desarrollé habilidades en composición visual y teoría del color.', date: '2011 - 2016', type: 'education' },
+      { title: 'Licenciatura en Bellas Artes', description: 'Universidad Nacional de Rosario, especialidad en Bellas Artes. Desarrollé habilidades en composición visual y teoría del color. 70% aprobado.', date: '2011 - 2016', type: 'education' },
       { title: 'Diseño Integral', description: 'Centro de Estudios de Diseño Gráfico, Diseño de Interiores, Diseño Industrial y Marketing. Formé competencias en software de diseño (Illustrator, Photoshop) y Dibujo técnico.', date: '2006 - 2009', type: 'education' },
       { title: 'Diseño de UX para Videojuegos', description: 'Curso online de UX gaming. Aprendí heurísticas específicas para interfaces de juego y prototipado en Unity.', date: '2025', type: 'certification' },
       { title: 'Game Design', description: 'Formación en mecánicas de juego, narrativa interactiva y herramientas de gamification.', date: '2025', type: 'certification' },
-      { title: 'UI - Design System', description: 'Curso de creación y mantenimiento de sistemas de diseño. Documenté componentes y establecí flujos colaborativos en Figma.', date: '2024', type: 'certification' },
-      { title: 'Product Manager', description: 'Formación en gestión de producto digital. Aprendí a definir roadmaps, priorizar backlog y medir KPIs de éxito.', date: '2023', type: 'certification' },
-      { title: 'Full Stack', description: 'Certificación oficial de desarrollo web. Construí aplicaciones con Angular, Node.js y bases de datos NoSQL en proyectos reales.', date: '2021', type: 'certification' }
+      { title: 'UI - Design System', description: 'Certificación Coderhouse en creación y gestión de Design Systems: documentación de componentes y flujos colaborativos.', date: '2024', type: 'certification' },
+      { title: 'Product Manager', description: 'Certificación Coderhouse en gestión de producto digital: roadmaps, priorización de backlog y métricas de éxito.', date: '2023', type: 'certification' },
+      { title: 'Full Stack', description: 'Certificación Argentina Programa: proyectos prácticos con Angular, Node.js y bases de datos NoSQL.', date: '2021', type: 'certification' }
     ];
 
 
     groupedTimeline: { [year: string]: any[] } = {};
     timelineYears: string[] = [];
+    
   
     constructor() {}
   

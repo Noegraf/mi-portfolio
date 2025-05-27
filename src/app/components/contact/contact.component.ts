@@ -10,9 +10,14 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./contact.component.css'],
 })
 export class ContactComponent {
- // formspreeUrl = 'https://formspree.io/f/xpwpllwq';  nouvalle //
+  formspreeUrl = 'https://formspree.io/f/xpwpllwq';  // nouvalle //
 
-  formspreeUrl = 'https://formspree.io/f/xqaqkqeo'; //goldete//
+
+  // formspreeUrl = 'https://formspree.io/f/xqaqkqeo'; goldete//
+
+
+
+  
 
   nombre: string = '';
   correo: string = '';

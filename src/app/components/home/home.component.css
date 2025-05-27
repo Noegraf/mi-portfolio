@@ -75,7 +75,7 @@
   color: var(--neutral-10);
   margin: 0;
   font-family: Lora;
-  font-size: 24px;
+  font-size: 16px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
@@ -115,6 +115,8 @@ svg {
   opacity: 0;
   animation: scale-up-tr-normal 1.5s ease 0s 1 normal both;
 }
+
+
 
 @keyframes fadeIn {
   from {
@@ -187,7 +189,7 @@ svg {
   }
 
   .title {
-    font-size: 18px;
+    font-size: 14px;
   }
 
   .button-55 {
@@ -208,7 +210,7 @@ svg {
   }
 
   .title {
-    font-size: 16px;
+    font-size: 12px;
   }
 
   .photo-frame {
@@ -219,3 +221,64 @@ svg {
     margin: 15% 5%;
   }
 }
+
+
+.links-section {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.links-section a {
+  font-size: 1.2rem;
+  color: var(--neutral-50);
+  transition: color 0.3s ease;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Colores de branding al hacer hover */
+.links-section a.fa-envelope:hover {
+  color: #D44638; /* Gmail */
+}
+
+.links-section a.fa-linkedin:hover {
+  color: #0A66C2;
+}
+
+.links-section a.fa-behance:hover {
+  color: #1769FF;
+}
+
+.links-section a.fa-github:hover {
+  color: #333;
+}
+
+.links-section a.fa-whatsapp:hover {
+  color: #25D366;
+}
+
+@media (max-width: 768px) {
+
+  .links-section {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.8rem; /* Reducir el espacio entre los íconos */
+  }
+
+  .links-section a {
+    font-size: 1rem; /* Reducir tamaño de los íconos en móviles */
+  }
+
+}
+
+@media (max-width: 480px) {
+
+  .links-section a {
+    font-size: 1rem; /* Ajuste fino del tamaño de los íconos */
+  }
+}
+
+
+

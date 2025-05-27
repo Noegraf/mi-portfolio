@@ -35,6 +35,53 @@ export class ProjectsComponent {
 
   
   projects = [
+{
+      name: "TCM - Landig Page",
+      type: ["Desktop", "UX/UI", "Landing Page"],
+      folderColor: "var(--color-secondary)",
+      image: "assets/pantallas/tcm-desktop.svg",
+      notes: [
+        "Rol: UX/UI Designer",
+        "Landing page informativa y funcional para TCM.",
+        "Diseño centrado en seguridad vial y productos metálicos."
+      ],
+      details: {
+        flujo: true,
+        prototipo: false,
+        arquitectura: true,
+        herramientas: ["Figma", "Photoshop", "Illustrator"],
+        flujoImage: "assets/pantallas/flujo tcm.png",
+        prototipoUrl: null,
+        extraImages: [
+          "assets/pantallas/TCM - 1.png",
+          "assets/pantallas/TCM - 2.png",
+          "assets/pantallas/TCM - 3.png",
+          "assets/pantallas/TCM - 4.png",
+          "assets/pantallas/TCM - 5.png",
+          "assets/pantallas/TCM - 6.png",
+          "assets/pantallas/TCM - 7.png"          
+        ],
+        responsabilidades: [
+          "Levantamiento de requerimientos y arquitectura de información.",
+      "Diseño de secciones principales como Inicio, Nosotros, Productos y Contacto.",
+      "Definición de diferenciadores visuales como botones reflejantes y delimitadores.",
+      "Redacción y organización de información técnica del catálogo de productos."
+        ],
+        principales_entregables: [
+          "Landing page responsiva con identidad visual sólida.",
+      "Presentación clara de productos como boyas viales, botones reflejantes y delimitadores.",
+      "Estructura de navegación sencilla para facilitar cotizaciones y pedidos en línea.",
+      "Guía visual de DOES y DON’TS sobre instalación y uso de productos viales."
+        ],
+        impacto_resultados: [
+           "Mejora en la percepción de marca al transmitir profesionalismo y confiabilidad.",
+      "Incremento en las cotizaciones en línea gracias a navegación más clara y call to actions visibles.",
+      "Educación al usuario sobre el uso correcto de los dispositivos viales y su normativa."
+        ]
+      }
+    },
+
+
     {
       name: "Talent Cloud - White Label",
       type: ["Desktop", "UX/UI"],
@@ -258,8 +305,53 @@ export class ProjectsComponent {
     },
     
     {
+      name: "MicaIA - Branding",
+      type: ["Educación", "Accesibilidad", "Branding"],
+      folderColor: "var(--color-secondary)",
+      image: "assets/pantallas/MICAIA-Branding.svg",
+      notes: [
+        "Rol: Product Designer",
+       "Diseño completo de identidad visual.",
+    "Sistema gráfico accesible."
+      ],
+      details: {
+        flujo: false,
+        prototipo: false,
+        arquitectura: false,
+        herramientas: ["Figma", "Illustrator"],
+        flujoImage: null,
+        arquitecturaImage: null,
+        prototipoUrl: null,
+        extraImages: [
+          "assets/pantallas/micaiabranding01.png",
+          "assets/pantallas/micaiabranding02.png",
+          "assets/pantallas/micaiabranding03.png",
+          "assets/pantallas/micaiabranding04.png",
+          "assets/pantallas/micaiabranding05.png",
+          "assets/pantallas/micaiabranding06.png"
+        ],
+        responsabilidades: [
+           "Diseño del imagotipo, paleta cromática y tipografía de marca.",
+      "Investigación en accesibilidad visual y reducción de sobreestimulación.",
+      "Construcción de sistema de identidad visual coherente y funcional."
+        ],
+        principales_entregables: [
+          "Imagotipo y sistema de marca adaptado a infancias neurodivergentes.",
+      "Guía visual con fundamentos de color, tipografía y componentes.",
+      "Kit gráfico con stickers, íconos y elementos visuales escalables."
+        ],
+        impacto_resultados: [
+          "Construcción de una identidad sólida, amigable y reconocible.",
+      "Validación positiva en pruebas con familias y profesionales.",
+      "Facilitación del diseño posterior de interfaces inclusivas y accesibles."
+        ]
+      }
+    },
+
+
+     {
       name: "MicaIA - Plataforma Educativa",
-      type: ["Aplicación Web", "UX/UI", "Educación", "Accesibilidad", "Branding"],
+      type: ["Aplicación Móvil", "UX/UI", "Educación", "Accesibilidad"],
       folderColor: "var(--color-secondary)",
       image: "assets/pantallas/MICAIA-mobile.svg",
       notes: [
@@ -290,26 +382,7 @@ export class ProjectsComponent {
           "assets/pantallas/micaiaapp12.png",
           "assets/pantallas/micaiaapp13.png",
           "assets/pantallas/micaiaapp14.png",
-          "assets/pantallas/micaiaapp15.png",
-          "assets/pantallas/micaiabranding01.png",
-          "assets/pantallas/micaiabranding02.png",
-          "assets/pantallas/micaiabranding03.png",
-          "assets/pantallas/micaiabranding04.png",
-          "assets/pantallas/micaiabranding05.png",
-          "assets/pantallas/micaiabranding06.png",
-          "assets/pantallas/micaiajuego101.png",
-          "assets/pantallas/micaiajuego102.png",
-          "assets/pantallas/micaiajuego103.png",
-          "assets/pantallas/micaiaweb01.png",
-          "assets/pantallas/micaiaweb02.png",
-          "assets/pantallas/micaiaweb03.png",
-          "assets/pantallas/ONEPAGE MICAIA 1.png",
-          "assets/pantallas/ONEPAGE MICAIA 2.png",
-          "assets/pantallas/micaia-presentation01.png",
-          "assets/pantallas/micaia-presentation02.png",
-          "assets/pantallas/micaia-presentation03.png",
-          "assets/pantallas/micaia-presentation04.png",
-          "assets/pantallas/micaia-presentation05.png"
+          "assets/pantallas/micaiaapp15.png"
         ],
         responsabilidades: [
           "Investigación profunda en accesibilidad infantil.",
@@ -328,6 +401,104 @@ export class ProjectsComponent {
         ]
       }
     },
+
+      {
+      name: "MicaIA - Diseño de juegos",
+      type: ["Videojuego", "Gamificación", "UX/UI", "Educación", "Accesibilidad"],
+      folderColor: "var(--color-secondary)",
+      image: "assets/pantallas/MICAIA-juego.svg",
+      notes: [
+        "Rol: Product Designer, UX/UI Game Designer",
+        "Diseño de mecánicas adaptadas al aprendizaje.",
+    "Aplicación de teoría de juegos para neurodivergencias."
+      ],
+      details: {
+        flujo: false,
+        prototipo: true,
+        arquitectura: false,
+        herramientas: ["Figma", "Illustrator", "Photoshop"],
+        flujoImage: null,
+        arquitecturaImage: null,
+        prototipoUrl: "https://www.figma.com/proto/cwvOllqeXqpFNHIhafo2au/MICAIA-UX-UI?node-id=350-8688&viewport=428%2C193%2C0.02&t=6TnbIUCYUAzVymNI-0&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=350%3A8688",
+        extraImages: [
+          "assets/pantallas/micaiajuego103.png",
+          "assets/pantallas/micaiajuego101.png",
+          "assets/pantallas/micaiajuego102.png",
+          "assets/pantallas/micaiajuego01.png",
+          "assets/pantallas/micaiajuego10.png",
+          "assets/pantallas/micaiajuego11.png",
+          "assets/pantallas/micaiajuego12.png",
+
+        ],
+        responsabilidades: [
+ "Diseño de mecánicas accesibles para niños TEA.",
+      "Integración de misiones lúdicas dentro de flujos terapéuticos.",
+      "Adaptación del feedback visual/sonoro según sensibilidades."
+        ],
+        principales_entregables: [
+           "Storyboard de mecánicas clave.",
+      "Wireflows de juego por nivel.",
+      "Sistemas de puntos y recompensas accesibles."
+        ],
+        impacto_resultados: [
+     "Alta motivación durante sesiones de prueba.",
+      "Aumento de permanencia y finalización de tareas.",
+      "Retroalimentación positiva de terapeutas y familias."
+        ]
+      }
+    },
+
+
+
+     {
+      name: "MicaIA - Presentaciones y Difusión",
+      type: ["Presentación", "Pitch", "Diseño gráfico", "Educación"],
+      folderColor: "var(--color-secondary)",
+      image: "assets/pantallas/micaia-presentation01.svg",
+      notes: [
+        "Rol: Diseñadora de presentación visual",
+        "Creación de narrativa visual para stakeholders.",
+    "Presentación del impacto educativo del sistema."
+      ],
+      details: {
+        flujo: false,
+        prototipo: false,
+        arquitectura: false,
+        herramientas: ["Figma", "Illustrator"],
+        flujoImage: null,
+        arquitecturaImage: null,
+        prototipoUrl: null,
+        extraImages: [
+          "assets/pantallas/micaiaweb01.png",
+          "assets/pantallas/micaiaweb02.png",
+          "assets/pantallas/micaiaweb03.png",
+          "assets/pantallas/ONEPAGE MICAIA 1.png",
+          "assets/pantallas/ONEPAGE MICAIA 2.png",
+          "assets/pantallas/micaia-presentation01.png",
+          "assets/pantallas/micaia-presentation02.png",
+          "assets/pantallas/micaia-presentation03.png",
+          "assets/pantallas/micaia-presentation04.png",
+          "assets/pantallas/micaia-presentation05.png"
+        ],
+        responsabilidades: [
+          "Diseño de slides para conferencias y convocatorias.",
+      "Resumen visual de arquitectura y flujos.",
+      "Adaptación de mensajes para públicos diversos (educadores, inversores, familias)."
+        ],
+        principales_entregables: [
+         "Presentación oficial en inglés y español.",
+      "Material de difusión en formato pitch-deck.",
+      "Resumen visual onepage del proyecto."
+        ],
+        impacto_resultados: [
+         "Interés internacional en la solución educativa.",
+      "Herramienta clave para obtener alianzas institucionales.",
+      "Uso en conferencias y encuentros profesionales."
+        ]
+      }
+    },
+
+
     {
       name: "Apolus - App Cripto",
       type: ["Aplicación Web", "UX/UI", "Fintech"],
@@ -740,7 +911,7 @@ export class ProjectsComponent {
     },
     {
       name: "HCP - Historia Clínica",
-      type: ["Aplicación Móvil", "Desktop", "Desarrollo", "UX/UI", "Branding"],
+      type: ["Desarrollo", "UX/UI", "Branding"],
       folderColor: "var(--color-secondary)",
       image: "assets/hcp-desktop.svg",
       notes: [
